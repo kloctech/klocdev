@@ -1,103 +1,95 @@
-import Image from "next/image";
+import Link from "next/link";
+import ServiceCard from "@/components/ServiceCard";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import AboutSection from "@/components/AboutSection";
+import FAQ from "@/components/FAQ";
+
+// a short list so Home can show 3 service cards as a teaser
+const SERVICES_TEASER = [
+  {
+    title: "Complete Website",
+    icon: "🪄",
+    desc: "Modern, fast, SEO-ready websites built with Next.js.",
+    features: ["Design → Dev → Deploy", "Responsive & Accessible"],
+  },
+  {
+    title: "Front-End Development",
+    icon: "⚡",
+    desc: "Pixel-perfect React/Next.js front-ends with great UX.",
+    features: ["Reusable components", "Performance optimization"],
+  },
+  {
+    title: "AI/ML Integrations",
+    icon: "🤖",
+    desc: "Chatbots, content tools, and search using modern models.",
+    features: ["OpenAI / HF", "RAG & vector search"],
+  },
+];
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <section className="relative space-y-12 sm:space-y-16">
+      {/* ---- HERO ---- */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 -top-24 -z-10 h-72 bg-gradient-to-b from-violet-600/20 to-transparent blur-2xl"
+      />
+      <div className="mx-auto max-w-3xl text-center">
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+          Your Website <span className="text-violet-400">Brought to Life</span>
+        </h1>
+        <p className="mt-4 text-sm text-slate-400 sm:text-base">
+          Full-stack development for SaaS, AI integrations, and fast, reliable sites.
+        </p>
+        <div className="mt-6 flex items-center justify-center gap-3">
+          <Link
+            href="/portfolio"
+            className="rounded-md bg-violet-500 px-4 py-2 text-xs font-medium text-white hover:bg-violet-400"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            See our work
+          </Link>
+       
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+         {/* About on the Home page */}
+         <AboutSection variant="embedded" />
+       {/* ---- SERVICES (teaser on Home) ---- */}
+      <section id="services">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-semibold">Services</h2>
+            <p className="mt-2 text-sm text-slate-400">
+              A quick look at what we offer. See the full list on our Services page.
+            </p>
+          </div>
+          <Link
+            href="/services" // ← opens the full Services page
+            className="hidden rounded-md border border-white/10 px-3 py-2 text-xs font-medium text-slate-200 hover:bg-white/5 sm:inline-block"
+          >
+            View all services
+          </Link>
+        </div>
+
+        <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {SERVICES_TEASER.map((s) => (
+            <ServiceCard key={s.title} {...s} />
+          ))}
+        </div>
+
+        <div className="mt-6 sm:hidden">
+          <Link
+            href="/services"
+            className="inline-block rounded-md border border-white/10 px-4 py-2 text-xs font-medium text-slate-200 hover:bg-white/5"
+          >
+            View all services
+          </Link>
+        </div>
+      </section>
+      <TestimonialsSection />
+       <div className="-mt-8 sm:-mt-0">
+       <FAQ variant="embedded" />
+         </div>
+    </section>
+   
   );
 }

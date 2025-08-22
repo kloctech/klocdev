@@ -1,0 +1,99 @@
+// components/AboutSection.js
+'use client'
+
+import Link from "next/link";
+
+export default function AboutSection({ variant = "embedded" }) {
+  const isStandalone = variant === "standalone";
+
+  return (
+    <section
+      id="about"
+      className={`${isStandalone ? "min-h-[100dvh]" : ""} relative bg-[#0b101b] text-slate-200`}
+    >
+      {/* subtle background glows (only on full /about page) */}
+      {isStandalone && (
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute -top-24 left-10 h-72 w-72 rounded-full bg-violet-700/20 blur-3xl" />
+          <div className="absolute top-40 -right-16 h-80 w-80 rounded-full bg-fuchsia-600/20 blur-3xl" />
+        </div>
+      )}
+
+      {/* HERO */}
+      <section className={`mx-auto max-w-7xl px-4 pb-8 ${isStandalone ? "pt-16 sm:pt-24" : "pt-10"} text-center`}>
+        <h1 className="mx-auto max-w-3xl text-2xl font-bold tracking-tight sm:text-5xl">
+          Experienced{" "}
+          <span className="relative inline-block">
+            <span className="relative z-10 bg-gradient-to-r from-violet-300 to-fuchsia-300 bg-clip-text text-transparent">
+              Full-Stack
+            </span>
+            <span
+              aria-hidden
+              className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full bg-gradient-to-r from-violet-500/50 to-fuchsia-500/50"
+            />
+          </span>{" "}
+          Developers
+        </h1>
+        <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-300 sm:text-base">
+          With 200+ projects delivered, we offer fast, reliable web development and
+          unlimited revisions to bring your vision to life.
+        </p>
+      </section>
+
+      {/* GRID: left stat card + right features */}
+      <section className={`mx-auto grid max-w-7xl gap-6 px-4 pb-20 lg:grid-cols-2 ${isStandalone ? "" : "pb-12"}`}>
+        {/* LEFT: big stat card */}
+        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0f1626] p-6 ring-1 ring-white/10">
+          <h2 className="text-3xl font-semibold leading-tight text-white">
+            200+ Projects
+            <br /> Launched
+          </h2>
+          <p className="mt-2 max-w-xl text-slate-300">
+            With over 200 successful projects, we bring experience, creativity, and reliability to every new website.
+          </p>
+
+          <Link
+            href="/contact"
+            className="mt-5 inline-block rounded-md bg-white/10 px-4 py-2 text-sm font-medium text-white hover:bg-white/20"
+          >
+            Get started now
+          </Link>
+
+          {/* abstract shapes */}
+          <div aria-hidden className="pointer-events-none absolute inset-0">
+            <div className="absolute -right-10 bottom-0 h-56 w-80 rounded-tl-[2rem] bg-gradient-to-br from-violet-500/35 to-indigo-700/25 blur-xl" />
+            <div className="absolute -left-8 -bottom-10 h-40 w-40 rotate-12 rounded-2xl bg-indigo-400/25 blur-lg" />
+            <div className="absolute right-24 -top-6 h-24 w-24 rounded-full bg-fuchsia-500/25 blur-xl" />
+            <div className="absolute bottom-10 left-8 h-10 w-20 rounded-lg bg-slate-900/60" />
+          </div>
+        </div>
+
+        {/* RIGHT: three feature cards */}
+        <div className="grid gap-6">
+          {[
+            {
+              title: "Full-Stack Development",
+              text:
+                "We deliver complete solutions, from design to development and AI/ML, with a proven track record of creating impactful, high-performing websites.",
+            },
+            {
+              title: "Quick Delivery",
+              text:
+                "With over a decade of experience, we deliver innovative, timeless designs with a focus on customer satisfaction and speed.",
+            },
+            {
+              title: "Unlimited Revisions",
+              text:
+                "With unlimited revisions and dedicated support, we ensure your vision and website is brought to life exactly as you imagine.",
+            },
+          ].map((f) => (
+            <article key={f.title} className="rounded-2xl border border-white/10 bg-[#0f1626] p-6 ring-1 ring-white/10">
+              <h3 className="text-lg font-semibold text-white">{f.title}</h3>
+              <p className="mt-1 text-sm text-slate-300">{f.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+    </section>
+  );
+}
