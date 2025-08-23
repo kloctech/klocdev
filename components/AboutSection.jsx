@@ -1,24 +1,12 @@
 // components/AboutSection.js
 'use client'
-
 import Link from "next/link";
 
 export default function AboutSection({ variant = "embedded" }) {
   const isStandalone = variant === "standalone";
 
   return (
-    <section
-      id="about"
-      className={`${isStandalone ? "min-h-[100dvh]" : ""} relative bg-[#0b101b] text-slate-200`}
-    >
-      {/* subtle background glows (only on full /about page) */}
-      {isStandalone && (
-        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute -top-24 left-10 h-72 w-72 rounded-full bg-violet-700/20 blur-3xl" />
-          <div className="absolute top-40 -right-16 h-80 w-80 rounded-full bg-fuchsia-600/20 blur-3xl" />
-        </div>
-      )}
-
+    <>
       {/* HERO */}
       <section className={`mx-auto max-w-7xl px-4 pb-8 ${isStandalone ? "pt-16 sm:pt-24" : "pt-10"} text-center`}>
         <h1 className="mx-auto max-w-3xl text-2xl font-bold tracking-tight sm:text-5xl">
@@ -41,7 +29,7 @@ export default function AboutSection({ variant = "embedded" }) {
       </section>
 
       {/* GRID: left stat card + right features */}
-      <section className={`mx-auto grid max-w-7xl gap-6 px-4 pb-20 lg:grid-cols-2 ${isStandalone ? "" : "pb-12"}`}>
+      <section className={`mx-auto grid max-w-7xl gap-6 px-4 ${isStandalone ? "pb-20" : "pb-12"} lg:grid-cols-2`}>
         {/* LEFT: big stat card */}
         <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0f1626] p-6 ring-1 ring-white/10">
           <h2 className="text-3xl font-semibold leading-tight text-white">
@@ -52,9 +40,10 @@ export default function AboutSection({ variant = "embedded" }) {
             With over 200 successful projects, we bring experience, creativity, and reliability to every new website.
           </p>
 
+          {/* No hover + more curve */}
           <Link
             href="/contact"
-            className="mt-5 inline-block rounded-md bg-white/10 px-4 py-2 text-sm font-medium text-white hover:bg-white/20"
+            className="mt-5 inline-block rounded-2xl bg-white/10 px-4 py-2 text-sm font-medium text-white ring-1 ring-white/10"
           >
             Get started now
           </Link>
@@ -94,6 +83,6 @@ export default function AboutSection({ variant = "embedded" }) {
           ))}
         </div>
       </section>
-    </section>
+    </>
   );
 }

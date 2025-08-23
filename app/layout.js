@@ -1,11 +1,11 @@
-import './globals.css';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import GlobalLightRays from '@/components/GlobalLightRays';
+import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import GlobalLightRays from "@/components/GlobalLightRays";
 
 export const metadata = {
-  title: 'YourBrand — Modern Web Development',
-  description: 'Full-stack websites, SaaS, and AI/ML integrations.',
+  title: "YourBrand — Kloc",
+  description: "Full-stack websites, SaaS, and AI/ML integrations.",
 };
 
 export default function RootLayout({ children }) {
