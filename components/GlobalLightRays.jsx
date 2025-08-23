@@ -1,20 +1,12 @@
-'use client';
+// components/GlobalLightRays.jsx
+'use client'
+import LightRays from '@/components/LightRays'   // LightRays is a default export
 
-// Try this import first:
-import { LightRays } from '@appletosolutions/reactbits';
-
-// If your editor complains, use this fallback:
-// import LightRays from '@appletosolutions/reactbits/LightRays';
-
-export default function GlobalLightRays({ className = '' }) {
+export default function GlobalLightRays() {
   return (
-    // pin behind everything and ignore clicks
-    <div className={`pointer-events-none fixed inset-0 -z-10 ${className}`}>
-      {/* Light rays across the whole viewport */}
-      <LightRays origin="top-center" />
-
-      {/* Optional gradient so text stays readable */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/20 to-slate-950" />
+    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
+      <LightRays className="w-full h-full" raysOrigin="top-center" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/30 to-slate-950/60" />
     </div>
-  );
+  )
 }

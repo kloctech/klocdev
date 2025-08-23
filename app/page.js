@@ -32,7 +32,7 @@ export default function Home() {
       {/* ---- HERO ---- */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 -top-24 -z-10 h-72 bg-gradient-to-b from-violet-600/20 to-transparent blur-2xl"
+        className="pointer-events-none absolute inset-x-0 -top-24 -z-10 h-72 bg-gradient-to-b from-violet-100/20 to-transparent blur-1xl"
       />
       <div className="mx-auto max-w-3xl text-center">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">

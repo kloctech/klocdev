@@ -12,10 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full scroll-smooth">
       <body className="min-h-screen bg-slate-950 text-slate-100 antialiased">
-        {/* Background effect */}
         <GlobalLightRays />
-
-        {/* Your site */}
         <Header />
         <main className="mx-auto max-w-7xl px-4 py-12">{children}</main>
         <Footer />
