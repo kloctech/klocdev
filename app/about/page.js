@@ -8,5 +8,9 @@ export const metadata = {
 };
 
 export default function AboutPage() {
-  return <AboutSection variant="standalone" />;
+  return (
+    <div className="-mt-20 sm:-mt-24">
+      <AboutSection variant="standalone" />
+    </div>
+  );
 }

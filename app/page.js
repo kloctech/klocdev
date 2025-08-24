@@ -3,8 +3,10 @@ import ServiceCard from "@/components/ServiceCard";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import AboutSection from "@/components/AboutSection";
 import FAQ from "@/components/FAQ";
+import SplitText from "@/components/SplitText";
 
-// a short list so Home can show 3 service cards as a teaser
+// (Removed unused Image import)
+
 const SERVICES_TEASER = [
   {
     title: "Complete Website",
@@ -30,22 +32,30 @@ export default function Home() {
   return (
     <section className="relative mt-24 sm:mt-32 space-y-20">
       {/* ---- HERO ---- */}
-      <h1 className="text-6xl font-bold tracking-tight sm:text-5xl text-center">
-        Your Website <span className="text-violet-400">Brought to Life</span>
+      <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-center leading-[0.9]">
+        <SplitText
+          text="Your Website"
+          splitType="chars"
+          delay={100}
+          duration={0.6}
+          className="inline-block"
+        />
+        <br />
+        <span className="text-violet-400">Brought to Life</span>{" "}
       </h1>
-      <p className="mt-1 text-sm text-slate-500 sm:text-base text-center">
+      <p className="shiny-overlay mt-1 text-base sm:text-lg md:text-xl leading-relaxed text-slate-500 text-center">
         Leading full-stack developers specializing in SaaS and AI platforms,
         delivering affordable and reliable website development services.
       </p>
       <Link
         href="/portfolio"
-        className="mt-6 mx-auto flex w-fit items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-violet-600 shadow ring-1 ring-white/10 transition-colors duration-200 "
+        className="mt-6 mb-48 mx-auto flex w-fit items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-violet-600 shadow ring-1 ring-white/10 transition-colors duration-200"
       >
         See our work
       </Link>
 
-      {/* About on the Home page */}
       <AboutSection variant="embedded" />
+
       {/* ---- SERVICES (teaser on Home) ---- */}
       <section id="services">
         <div className="flex items-end justify-between gap-4">
@@ -57,7 +67,7 @@ export default function Home() {
             </p>
           </div>
           <Link
-            href="/services" // ← opens the full Services page
+            href="/services"
             className="hidden rounded-md border border-white/10 px-3 py-2 text-xs font-medium text-slate-200 hover:bg-white/5 sm:inline-block"
           >
             View all services
@@ -79,6 +89,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
       <TestimonialsSection />
       <div className="-mt-8 sm:-mt-0">
         <FAQ variant="embedded" />

@@ -2,3 +2,68 @@
 
 :root { color-scheme: dark; }
 html, body { height: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  header, header * {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Just for centering and spacing the content */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.spacer {
+  height: 80vh; /* This creates lots of space so you can scroll */
+}
+
+/* Style for your animated text */
+.my-custom-text {
+  font-size: 4rem; /* Make it big and easy to see */
+  font-weight: bold;
+  color: #222;
+}
+
+/* GSAP adds this class to the lines it creates when splitting */
+.split-line {
+  overflow: hidden; /* This hides the letters before they animate up */
+  display: block;   /* Ensures lines are stacked vertically */
+}
+
+
+
+/* Shimmer animation */
+@keyframes shine {
+  from { background-position: -200% 0; }
+  to   { background-position: 200% 0; }
+}
+
+/* Make the text itself a moving gradient */
+.shiny-text {
+  background-image: linear-gradient(
+    120deg,
+    #a78bfa 0%,
+    #ffffff 20%,
+    #a78bfa 40%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;          /* important: show only the gradient */
+  animation: shine 2.2s linear infinite;
+}
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .shiny-text { animation: none; background-position: 0 0; }
+}
+
+
+
+
