@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@plugin "@tailwindcss/forms"; 
 :root { color-scheme: dark; }
 html, body { height: 100%; }
 @media (prefers-reduced-motion: reduce) {
