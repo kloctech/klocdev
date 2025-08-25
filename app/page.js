@@ -41,9 +41,14 @@ export default function Home() {
         <br />
         <span className="text-violet-400">Brought to Life</span>{" "}
       </h1>
-      <p className="shiny-overlay mt-1 text-base sm:text-lg md:text-xl leading-relaxed text-slate-500 text-center">
-        Leading full-stack developers specializing in SaaS and AI platforms,
-        delivering affordable and reliable website development services.
+      <p className="mt-1 text-base sm:text-lg md:text-xl leading-relaxed text-center font-medium text-slate-300">
+        <span
+          className="shiny-stable"
+          data-text="Leading full-stack developers specializing in SaaS and AI platforms, delivering affordable and reliable website development services."
+        >
+          Leading full-stack developers specializing in SaaS and AI platforms,
+          delivering affordable and reliable website development services.
+        </span>
       </p>
       <Link
         href="/portfolio"
