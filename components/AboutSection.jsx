@@ -1,6 +1,7 @@
 // components/AboutSection.js
-'use client'
+"use client";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function AboutSection({ variant = "embedded" }) {
   const isStandalone = variant === "standalone";
@@ -8,7 +9,11 @@ export default function AboutSection({ variant = "embedded" }) {
   return (
     <>
       {/* HERO */}
-      <section className={`mx-auto max-w-7xl px-4 pb-8 ${isStandalone ? "pt-16 sm:pt-24" : "pt-10"} text-center`}>
+      <section
+        className={`mx-auto max-w-7xl px-4 pb-8 ${
+          isStandalone ? "pt-16 sm:pt-24" : "pt-10"
+        } text-center`}
+      >
         <h1 className="mx-auto max-w-3xl text-2xl font-bold tracking-tight sm:text-5xl">
           Experienced{" "}
           <span className="relative inline-block">
@@ -23,30 +28,43 @@ export default function AboutSection({ variant = "embedded" }) {
           Developers
         </h1>
         <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-300 sm:text-base">
-          With 200+ projects delivered, we offer fast, reliable web development and
-          unlimited revisions to bring your vision to life.
+          With 200+ projects delivered, we offer fast, reliable web development
+          and unlimited revisions to bring your vision to life.
         </p>
       </section>
 
       {/* GRID: left stat card + right features */}
-      <section className={`mx-auto grid max-w-7xl gap-6 px-4 ${isStandalone ? "pb-20" : "pb-12"} lg:grid-cols-2`}>
+      <section
+        className={`mx-auto grid max-w-7xl gap-6 px-4 ${
+          isStandalone ? "pb-20" : "pb-12"
+        } lg:grid-cols-2`}
+      >
         {/* LEFT: big stat card */}
         <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0f1626] p-6 ring-1 ring-white/10">
+          <Image
+            src="/office.png"
+            alt="" // decorative
+            aria-hidden // decorative
+            fill
+            priority
+            sizes="(min-width:1024px) 50vw, 100vw"
+          />
           <h2 className="text-3xl font-semibold leading-tight text-white">
-            200+ Projects
-            <br /> Launched
+            200+ Projects <span className="ml-2">Launched</span>
           </h2>
           <p className="mt-2 max-w-xl text-slate-300">
-            With over 200 successful projects, we bring experience, creativity, and reliability to every new website.
+            With over 200 successful projects, <br />
+            we bring experience.
           </p>
 
-          {/* No hover + more curve */}
-          <Link
-            href="/contact"
-            className="mt-5 inline-block rounded-2xl bg-white/10 px-4 py-2 text-sm font-medium text-white ring-1 ring-white/10"
-          >
-            Get started now
-          </Link>
+          <div className="mt-62  flex justify-center">
+            <Link
+              href="/contact"
+              className="mt-5 inline-block rounded-2xl bg-white/10 px-4 py-2 text-sm font-medium text-white ring-1 ring-white/10"
+            >
+              Get started now
+            </Link>
+          </div>
 
           {/* abstract shapes */}
           <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -62,23 +80,31 @@ export default function AboutSection({ variant = "embedded" }) {
           {[
             {
               title: "Full-Stack Development",
-              text:
-                "We deliver complete solutions, from design to development and AI/ML, with a proven track record of creating impactful, high-performing websites.",
+              text: "We deliver complete solutions, from design to development and AI/ML, with a proven track record of creating impactful, high-performing websites.",
             },
             {
               title: "Quick Delivery",
-              text:
-                "With over a decade of experience, we deliver innovative, timeless designs with a focus on customer satisfaction and speed.",
+              text: "With over a decade of experience, we deliver innovative, timeless designs with a focus on customer satisfaction and speed.",
             },
             {
               title: "Unlimited Revisions",
-              text:
-                "With unlimited revisions and dedicated support, we ensure your vision and website is brought to life exactly as you imagine.",
+              text: "With unlimited revisions and dedicated support, we ensure your vision and website is brought to life exactly as you imagine.",
             },
           ].map((f) => (
-            <article key={f.title} className="rounded-2xl border border-white/10 bg-[#0f1626] p-6 ring-1 ring-white/10">
-              <h3 className="text-lg font-semibold text-white">{f.title}</h3>
-              <p className="mt-1 text-sm text-slate-300">{f.text}</p>
+            <article
+              key={f.title}
+              className="group rounded-2xl border border-white/10 bg-[#0f1626] p-6
+             ring-1 ring-white/10 transition-all duration-300 ease-out
+             hover:border-violet-400/30 hover:ring-violet-400/20 hover:bg-[#121a2d]
+             motion-safe:hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/10
+             focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/40 "
+            >
+              <h3 className="text-lg font-semibold text-white flex items-center gap-1">
+                {f.title}
+              </h3>
+              <p className="mt-1 text-sm text-slate-300 transition-colors duration-300 group-hover:text-slate-200">
+                {f.text}
+              </p>
             </article>
           ))}
         </div>

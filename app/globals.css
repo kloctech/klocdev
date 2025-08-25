@@ -63,6 +63,43 @@ html, body { height: 100%; }
 @media (prefers-reduced-motion: reduce) {
   .shiny-text { animation: none; background-position: 0 0; }
 }
+/* ---- Rolling services (vertical loop) ---- */
+.rolling-mask {
+  /* fades the top/bottom so the list looks soft */
+  mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+  overflow: hidden;
+  pointer-events: none; /* it's decorative */
+}
+
+.rolling-track {
+  display: flex;
+  flex-direction: column;
+  animation: roll 22s linear infinite;
+  will-change: transform;
+}
+
+.rolling-item {
+  font-weight: 800;
+  line-height: 1.1;
+  opacity: 0.35;               /* soft/ghosted look */
+  letter-spacing: .01em;
+  /* responsive size similar to the reference */
+  font-size: clamp(24px, 6vw, 44px);
+}
+
+@keyframes roll {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); } /* because we duplicate the list */
+}
+
+
+
+
+
+  
+
+
 
 
 
