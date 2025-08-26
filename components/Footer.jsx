@@ -5,7 +5,12 @@ import Link from "next/link";
 function LogoMark(props) {
   return (
     <svg viewBox="0 0 40 40" aria-hidden="true" className="h-8 w-8" {...props}>
-      <g fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+      >
         <path d="M8 11 L18 6 L32 13" />
         <path d="M8 19 L18 14 L32 21" />
         <path d="M8 27 L18 22 L32 29" />
@@ -15,7 +20,7 @@ function LogoMark(props) {
 }
 
 export default function Footer({
-  brand = { primary: "#8b5cf6", accent: "#a78bfa", bg: "#0a0a23" }, // tweak to your colors
+  brand = { primary: "#8b5cf6", accent: "#a78bfa", bg: "#0a0a23" },
   brandName = "KLoc",
 }) {
   const year = new Date().getFullYear();
@@ -24,7 +29,7 @@ export default function Footer({
     product: [
       { label: "About", href: "/about" },
       { label: "Services", href: "/services" },
-      { label: "Testimonials", href: "/testimonials" },
+      { label: "Testimonials", href: "/#testimonials" },
     ],
     company: [{ label: "FAQ", href: "/faq" }],
     legal: [
@@ -85,10 +90,7 @@ export default function Footer({
   ];
 
   return (
-    <footer
-      className="relative mt-24 border-t border-white/10 bg-inherit text-slate-200"
-      
-    >
+    <footer className="relative mt-24 border-t border-white/10 bg-inherit text-slate-200">
       {/* soft background glow */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
@@ -120,7 +122,9 @@ export default function Footer({
           {/* CTA card */}
           <div className="md:col-span-5">
             <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-              <p className="text-lg text-slate-300">Bring your website to life.</p>
+              <p className="text-lg text-slate-300">
+                Bring your website to life.
+              </p>
               <div className="mt-4">
                 <Link
                   href="/contact"
@@ -137,11 +141,16 @@ export default function Footer({
           <div className="md:col-span-7">
             <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
               <div>
-                <h3 className="text-sm font-semibold text-slate-300">Product</h3>
+                <h3 className="text-sm font-semibold text-slate-300">
+                  Product
+                </h3>
                 <ul className="mt-4 space-y-3 text-sm text-slate-400">
                   {nav.product.map((item) => (
                     <li key={item.label}>
-                      <Link href={item.href} className="transition-colors hover:text-slate-200">
+                      <Link
+                        href={item.href}
+                        className="transition-colors hover:text-slate-200"
+                      >
                         {item.label}
                       </Link>
                     </li>
@@ -150,11 +159,16 @@ export default function Footer({
               </div>
 
               <div>
-                <h3 className="text-sm font-semibold text-slate-300">Company</h3>
+                <h3 className="text-sm font-semibold text-slate-300">
+                  Company
+                </h3>
                 <ul className="mt-4 space-y-3 text-sm text-slate-400">
                   {nav.company.map((item) => (
                     <li key={item.label}>
-                      <Link href={item.href} className="transition-colors hover:text-slate-200">
+                      <Link
+                        href={item.href}
+                        className="transition-colors hover:text-slate-200"
+                      >
                         {item.label}
                       </Link>
                     </li>
@@ -167,7 +181,10 @@ export default function Footer({
                 <ul className="mt-4 space-y-3 text-sm text-slate-400">
                   {nav.legal.map((item) => (
                     <li key={item.label}>
-                      <Link href={item.href} className="transition-colors hover:text-slate-200">
+                      <Link
+                        href={item.href}
+                        className="transition-colors hover:text-slate-200"
+                      >
                         {item.label}
                       </Link>
                     </li>
