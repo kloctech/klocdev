@@ -11,7 +11,8 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata = {
-  title: "YourBrand — Kloc",
+  icons: { icon: "/logo.png" },
+  title: "KLoc",
   description: "Full-stack websites, SaaS, and AI/ML integrations.",
 };
 
