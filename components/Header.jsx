@@ -61,7 +61,7 @@ export default function Header() {
 
           {/* Right: CTA */}
           <Link
-            href="/quote"
+            href="/contact"
             className={[
               "justify-self-end rounded-full border border-white/10 bg-white/10 hover:bg-white/20",
               "text-slate-100 transition-all duration-200",
