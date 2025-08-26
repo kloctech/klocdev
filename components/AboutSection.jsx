@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import SquiggleUnderline from "@/components/SquiggleUnderline";
+
 export default function AboutSection({ variant = "embedded" }) {
   const isStandalone = variant === "standalone";
 
@@ -14,17 +16,14 @@ export default function AboutSection({ variant = "embedded" }) {
           isStandalone ? "pt-16 sm:pt-24" : "pt-10"
         } text-center`}
       >
-        <h1 className="mx-auto max-w-3xl text-2xl font-bold tracking-tight sm:text-5xl">
+        <h1 className="mx-auto max-w-4xl text-2xl sm:text-5xl font-bold tracking-tight">
           Experienced{" "}
-          <span className="relative inline-block">
-            <span className="relative z-10 bg-gradient-to-r from-violet-300 to-fuchsia-300 bg-clip-text text-transparent">
-              Full-Stack
-            </span>
-            <span
-              aria-hidden
-              className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full bg-gradient-to-r from-violet-500/50 to-fuchsia-500/50"
-            />
-          </span>{" "}
+          <SquiggleUnderline
+            strokeClass="text-white/90"
+            className="text-violet-400"
+          >
+            Full-Stack
+          </SquiggleUnderline>{" "}
           Developers
         </h1>
         <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-300 sm:text-base">

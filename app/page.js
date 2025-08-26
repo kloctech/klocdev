@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <section className="relative mt-20 sm:mt-32 space-y-20">
       {/* ---- HERO ---- */}
-      <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-center leading-[0.9]">
+      <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-7xl font-bold tracking-tight text-center leading-[0.9]">
         <SplitText
           text="Your Website"
           splitType="chars"
@@ -41,7 +41,7 @@ export default function Home() {
         <br />
         <span className="text-violet-400">Brought to Life</span>{" "}
       </h1>
-      <p className="mt-1 text-base sm:text-lg md:text-xl leading-relaxed text-center font-medium text-slate-300">
+      <p className="mt-1 text-base sm:text-lg md:text-l leading-relaxed text-center font-medium text-slate-300">
         <span
           className="shiny-stable"
           data-text="Leading full-stack developers specializing in SaaS and AI platforms, delivering affordable and reliable website development services."

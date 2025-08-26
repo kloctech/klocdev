@@ -1,35 +1,41 @@
+// hooks/usePointerYDirection.js
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-/** returns "up" | "down" based on cursor/touch Y direction */
+/** returns "up" | "down" based on WINDOW SCROLL only */
 export default function usePointerYDirection({ threshold = 8 } = {}) {
   const [direction, setDirection] = useState("down");
   const lastY = useRef(null);
 
   useEffect(() => {
-    const onMove = (e) => {
-      const t = e.touches?.[0];
-      const y = t?.clientY ?? e.clientY;
-      if (y == null) return;
+    const readY = () =>
+      Math.max(
+        0,
+        window.scrollY ??
+          document.documentElement.scrollTop ??
+          document.body.scrollTop ??
+          0
+      );
+
+    const onScroll = () => {
+      const y = readY();
 
       if (lastY.current == null) {
-        lastY.current = y;
+        lastY.current = y; // prime on first run
         return;
       }
+
       const dy = y - lastY.current; // +down, -up
       if (Math.abs(dy) >= threshold) {
         setDirection(dy < 0 ? "up" : "down");
-        lastY.current = y;
+        lastY.current = y; // update only when we cross the threshold
       }
     };
 
-    window.addEventListener("pointermove", onMove, { passive: true });
-    window.addEventListener("touchmove", onMove, { passive: true });
-    return () => {
-      window.removeEventListener("pointermove", onMove);
-      window.removeEventListener("touchmove", onMove);
-    };
-  }, [threshold]); // ← no need to depend on `direction`
+    lastY.current = readY();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [threshold]);
 
   return direction;
 }
