@@ -39,7 +39,7 @@ export default function SquiggleUnderline({
       <svg
         aria-hidden="true"
         className={`pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-0 ${strokeClass}`}
-        width="115%" /* slightly longer than the word */
+        width="100%" /* slightly longer than the word */
         height="12" /* underline height space */
         viewBox="0 0 100 12"
         preserveAspectRatio="none"
@@ -49,7 +49,7 @@ export default function SquiggleUnderline({
           d="M2 8 Q 12 2 22 8 T 42 8 T 62 8 T 82 8 T 98 8"
           fill="none"
           stroke="currentColor"
-          strokeWidth="2"
+          strokeWidth="1"
           strokeLinecap="round"
           pathLength="1" /* normalize length */
           style={{

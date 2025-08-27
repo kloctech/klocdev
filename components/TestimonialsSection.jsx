@@ -1,6 +1,7 @@
 // components/TestimonialsSection.jsx
 "use client";
 import { useMemo, useState } from "react";
+import SquiggleUnderline from "@/components/SquiggleUnderline";
 
 const TESTIMONIALS = [
   {
@@ -97,10 +98,13 @@ export default function TestimonialsSection({ className = "" }) {
       <div className="mx-auto max-w-6xl text-center">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-slate-100">
           What Our{" "}
-          <span className="relative">
-            <span className="text-violet-400">Clients</span>
-            <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-violet-500/60 rounded-full" />
-          </span>{" "}
+          <SquiggleUnderline
+            strokeClass="text-white/90"
+            className="text-violet-400"
+          >
+            {" "}
+            Clients
+          </SquiggleUnderline>{" "}
           Say
         </h2>
         <p className="mt-4 max-w-3xl mx-auto text-slate-400">
