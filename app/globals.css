@@ -135,3 +135,8 @@ html, body { height: 100%; }
   animation: shine-stable 4s linear infinite; /* ← slower */
   will-change: background-position;
 }
+/* Make case-study text readable on a white panel */
+.case-desc { color: #334155; }           /* slate-700 */
+.case-desc p { color: inherit; opacity: 1; }
+.case-desc strong, .case-desc h2, .case-desc h3 { color: #0f172a; }  /* slate-900 */
+.case-desc a { color: #059669; text-decoration: underline; }        /* emerald-600 */

@@ -3,8 +3,9 @@ import Link from "next/link";
 import { Eye, ExternalLink } from "lucide-react";
 import SquiggleUnderline from "@/components/SquiggleUnderline";
 import Image from "next/image";
+import ATA from "@/components/CaseStudyOverlay";
 
-// Put these files in /public/logos (no /public prefix when importing)
+// Puting  these files in /public/logos
 const LOGOS = {
   ATA: "/logos/ATA.png",
   LLMEO: "/logos/LLMEO.png",
@@ -85,7 +86,7 @@ export default function ProjectsSection() {
                 </Link>
 
                 <Link
-                  href={p.live ?? "#"}
+                  href="/portfolio/ata "
                   className="inline-flex items-center gap-1 hover:text-white"
                 >
                   <Eye className="h-4 w-4" aria-hidden />
@@ -124,7 +125,7 @@ export default function ProjectsSection() {
               {/* Footer */}
               <div className="mt-3 flex justify-end">
                 <Link
-                  href={p.live ?? "#"}
+                  href="/"
                   className="rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-200 hover:bg-white/10"
                 >
                   Open
