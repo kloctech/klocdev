@@ -46,7 +46,7 @@ export default function SquiggleUnderline({
       >
         {/* gentle waves: change control points to tweak “wiggle” */}
         <path
-          d="M2 8 Q 12 2 22 8 T 42 8 T 62 8 T 82 8 T 98 8"
+          d="M2 9 Q 12 8.4 22 9 T 42 9 T 62 9 T 82 9 T 98 9"
           fill="none"
           stroke="currentColor"
           strokeWidth="1"
