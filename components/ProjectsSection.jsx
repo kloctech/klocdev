@@ -3,8 +3,7 @@ import Link from "next/link";
 import { Eye, ExternalLink } from "lucide-react";
 import SquiggleUnderline from "@/components/SquiggleUnderline";
 import Image from "next/image";
-import ATA from "@/components/CaseStudyOverlay";
-
+import CaseStudyOverlay from "./CaseStudyOverlay";
 // Puting  these files in /public/logos
 const LOGOS = {
   ATA: "/logos/ATA.png",
