@@ -9,7 +9,7 @@ export default function Header() {
   const squeezed = dir === "up";
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // (nice-to-have) lock page scroll when mobile menu is open
+  // Lock page scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => (document.body.style.overflow = "");
@@ -94,9 +94,7 @@ export default function Header() {
                 squeezed ? "h-8 w-8" : "h-9 w-9",
               ].join(" ")}
             >
-              {/* Icon: hamburger / close */}
               {mobileOpen ? (
-                // X icon
                 <svg
                   viewBox="0 0 24 24"
                   className="h-5 w-5"
@@ -107,7 +105,6 @@ export default function Header() {
                   <path d="M6 6l12 12M6 18L18 6" strokeLinecap="round" />
                 </svg>
               ) : (
-                // Hamburger
                 <svg
                   viewBox="0 0 24 24"
                   className="h-5 w-5"
@@ -121,62 +118,85 @@ export default function Header() {
             </button>
           </div>
         </div>
-
-        {/* Mobile Nav (slide-down panel) */}
-        <nav
-          id="mobile-nav"
-          className={[
-            "md:hidden overflow-hidden transition-[max-height,opacity] duration-300",
-            "rounded-2xl border border-white/10 bg-slate-900/70 mt-2",
-            mobileOpen ? "max-h-[60vh] opacity-100" : "max-h-0 opacity-0",
-          ].join(" ")}
-        >
-          <div className="p-3">
-            <Link
-              href="/"
-              className="block rounded-lg px-3 py-2 text-slate-200 hover:bg-white/10"
-              onClick={() => setMobileOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="block rounded-lg px-3 py-2 text-slate-200 hover:bg-white/10"
-              onClick={() => setMobileOpen(false)}
-            >
-              About Us
-            </Link>
-            <Link
-              href="/services"
-              className="block rounded-lg px-3 py-2 text-slate-200 hover:bg-white/10"
-              onClick={() => setMobileOpen(false)}
-            >
-              Services
-            </Link>
-            <Link
-              href="/faq"
-              className="block rounded-lg px-3 py-2 text-slate-200 hover:bg-white/10"
-              onClick={() => setMobileOpen(false)}
-            >
-              FAQ
-            </Link>
-            <Link
-              href="/portfolio"
-              className="block rounded-lg px-3 py-2 text-slate-200 hover:bg-white/10"
-              onClick={() => setMobileOpen(false)}
-            >
-              Portfolio
-            </Link>
-            <Link
-              href="/contact"
-              className="mt-2 block rounded-full border border-white/10 bg-white/10 px-4 py-2 text-center text-slate-100 hover:bg-white/20"
-              onClick={() => setMobileOpen(false)}
-            >
-              Get a Quote
-            </Link>
-          </div>
-        </nav>
       </div>
+
+      {/* ===== Mobile Nav Overlay (FULL-SCREEN) ===== */}
+      {mobileOpen && (
+        <div
+          className="md:hidden fixed inset-0 z-[60] bg-slate-950/70 backdrop-blur-md"
+          onClick={() => setMobileOpen(false)} // click backdrop to close
+          aria-hidden={!mobileOpen}
+        >
+          <nav
+            id="mobile-nav"
+            className="absolute left-4 right-4 top-[max(16px,env(safe-area-inset-top))] rounded-2xl border border-white/10 bg-slate-900/85 shadow-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
+          >
+            <div className="p-4 max-h-[80dvh] overflow-y-auto">
+              <Link
+                href="/"
+                className="block rounded-lg px-3 py-3 text-slate-200 hover:bg-white/10"
+                onClick={() => setMobileOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                href="/about"
+                className="block rounded-lg px-3 py-3 text-slate-200 hover:bg-white/10"
+                onClick={() => setMobileOpen(false)}
+              >
+                About Us
+              </Link>
+              <Link
+                href="/services"
+                className="block rounded-lg px-3 py-3 text-slate-200 hover:bg-white/10"
+                onClick={() => setMobileOpen(false)}
+              >
+                Services
+              </Link>
+              <Link
+                href="/faq"
+                className="block rounded-lg px-3 py-3 text-slate-200 hover:bg-white/10"
+                onClick={() => setMobileOpen(false)}
+              >
+                FAQ
+              </Link>
+              <Link
+                href="/portfolio"
+                className="block rounded-lg px-3 py-3 text-slate-200 hover:bg-white/10"
+                onClick={() => setMobileOpen(false)}
+              >
+                Portfolio
+              </Link>
+
+              <Link
+                href="/contact"
+                className="mt-3 block rounded-full border border-white/10 bg-white/10 px-4 py-3 text-center text-slate-100 hover:bg-white/20"
+                onClick={() => setMobileOpen(false)}
+              >
+                Get a Quote
+              </Link>
+            </div>
+
+            {/* Close button in the corner (for accessibility / UX) */}
+            <button
+              aria-label="Close menu"
+              className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/10"
+              onClick={() => setMobileOpen(false)}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M6 6l12 12M6 18L18 6" strokeLinecap="round" />
+              </svg>
+            </button>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
