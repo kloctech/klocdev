@@ -3,8 +3,9 @@ import Link from "next/link";
 import { Eye, ExternalLink } from "lucide-react";
 import SquiggleUnderline from "@/components/SquiggleUnderline";
 import Image from "next/image";
-import CaseStudyOverlay from "./CaseStudyOverlay";
-// Puting  these files in /public/logos
+// import CaseStudyOverlay from "./CaseStudyOverlay"; // not used anymore
+
+// /public/logos/*
 const LOGOS = {
   ATA: "/logos/ATA.png",
   LLMEO: "/logos/LLMEO.png",
@@ -15,26 +16,47 @@ const LOGOS = {
 };
 
 const PROJECTS = [
-  { name: "ATA", live: "#", gradientFrom: "#16a34a", gradientTo: "#0ea5e9" },
-  { name: "LLMEO", live: "#", gradientFrom: "#0ea5e9", gradientTo: "#1d4ed8" },
   {
+    id: "llmeo",
+    name: "LLMEO",
+    live: "#",
+    gradientFrom: "#0ea5e9",
+    gradientTo: "#1d4ed8",
+  },
+  {
+    id: "zentrova",
+    name: "Zentrova",
+    live: "#",
+    gradientFrom: "#06b6d4",
+    gradientTo: "#3b82f6",
+  },
+  {
+    id: "opmax",
+    name: "OpMax",
+    live: "#",
+    gradientFrom: "#6366f1",
+    gradientTo: "#ec4899",
+  },
+  {
+    id: "ata",
+    name: "ATA",
+    live: "#",
+    gradientFrom: "#16a34a",
+    gradientTo: "#0ea5e9",
+  },
+  {
+    id: "linkedsumo",
     name: "LinkedSumo",
     live: "#",
     gradientFrom: "#1e40af",
     gradientTo: "#2563eb",
   },
-  { name: "OpMax", live: "#", gradientFrom: "#6366f1", gradientTo: "#ec4899" },
   {
+    id: "smarttracker",
     name: "SmartTracker",
     live: "/Home",
     gradientFrom: "#ef4444",
     gradientTo: "#f59e0b",
-  },
-  {
-    name: "Zentrova",
-    live: "#",
-    gradientFrom: "#06b6d4",
-    gradientTo: "#3b82f6",
   },
 ];
 
@@ -56,7 +78,7 @@ export default function ProjectsSection() {
           const src = LOGOS[p.name] ?? "/logos/default.png";
           return (
             <article
-              key={p.name}
+              key={p.id}
               className="w-full max-w-sm group rounded-2xl border border-white/10 bg-slate-900/50 p-4
                          shadow-[0_8px_30px_rgba(2,6,23,0.35)]
                          backdrop-blur transition-transform duration-300 hover:-translate-y-1"
@@ -84,8 +106,9 @@ export default function ProjectsSection() {
                   />
                 </Link>
 
+                {/* View -> your explicit route */}
                 <Link
-                  href="/portfolio/ata "
+                  href={`/portfolio/${p.id}`}
                   className="inline-flex items-center gap-1 hover:text-white"
                 >
                   <Eye className="h-4 w-4" aria-hidden />
@@ -102,7 +125,6 @@ export default function ProjectsSection() {
               >
                 <div className="absolute inset-0 grid place-items-center">
                   <div className="flex items-center gap-3">
-                    {/* Logo */}
                     <div className="relative h-10 w-10 sm:h-12 sm:w-12">
                       <Image
                         src={src}
@@ -111,9 +133,7 @@ export default function ProjectsSection() {
                         className="object-contain drop-shadow-[0_1px_1px_rgba(0,0,0,.6)]"
                         priority
                       />
-                      {/* If the logo is dark, add: className="object-contain brightness-0 invert" */}
                     </div>
-                    {/* Name */}
                     <span className="text-white/95 text-2xl font-semibold tracking-wide drop-shadow-[0_1px_1px_rgba(0,0,0,.6)]">
                       {p.name}
                     </span>
@@ -129,6 +149,11 @@ export default function ProjectsSection() {
                 >
                   Open
                 </Link>
+                {/* Or, to open the live site instead:
+                <Link href={p.live ?? "#"} target="_blank" className="rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-200 hover:bg-white/10">
+                  Open
+                </Link>
+                */}
               </div>
             </article>
           );
