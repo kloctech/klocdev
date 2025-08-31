@@ -1,8 +1,9 @@
 "use client";
+
 import { useRouter } from "next/navigation";
 import CaseStudyOverlay from "@/components/CaseStudyOverlay";
 
-const ATA = {
+const OpMax = {
   title: "OpMax",
   live: "#", // put your live URL
   dashboard: "/portfolio/ata", // or an external URL if you have one
@@ -18,6 +19,6 @@ const ATA = {
 export default function Page() {
   const router = useRouter();
   return (
-    <CaseStudyOverlay open={true} onClose={() => router.back()} data={ATA} />
+    <CaseStudyOverlay open={true} onClose={() => router.back()} data={OpMax} />
   );
 }
