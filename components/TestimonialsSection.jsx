@@ -8,7 +8,7 @@ const TESTIMONIALS = [
     name: "Jake Marine",
     role: "Anchorize",
     avatar: "https://i.pravatar.cc/80?img=67",
-    quote: "I wanted to thank Evolvion.io for all of the amazing work… UI/UX…",
+    quote: "I wanted to thank KLoc for all of the amazing work… UI/UX…",
   },
   {
     name: "Grant Bolton",
