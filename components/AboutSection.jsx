@@ -39,13 +39,13 @@ export default function AboutSection({ variant = "embedded" }) {
         } lg:grid-cols-2`}
       >
         {/* LEFT: big stat card */}
-        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0f1626] p-6 ring-1 ring-white/10">
+        <div className="relative w-full aspect-[16/9]">
           <Image
             src="/office.png"
             alt="" // decorative
             fill
             priority
-            sizes="(min-width:1024px) 50vw, 100vw"
+            // sizes="(min-width:1024px) 50vw, 100vw"
             className="object-cover"
           />
 
