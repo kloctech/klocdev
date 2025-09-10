@@ -38,12 +38,11 @@ export default function AboutSection({ variant = "embedded" }) {
           isStandalone ? "pb-20" : "pb-12"
         } lg:grid-cols-2`}
       >
-        {/* LEFT: big stat card (tuned for laptop) */}
-        {/* VISUAL CARD (mobile-friendly) */}
+        {/* VISUAL CARD (tuned for phones) */}
         <div
           className="relative w-full overflow-hidden rounded-2xl
-                h-[380px] xs:h-[440px] sm:h-auto
-                sm:aspect-[3/2] lg:aspect-[5/3] xl:aspect-[16/9]"
+                h-[460px] sm:h-auto
+                sm:aspect-[4/3] lg:aspect-[5/3] xl:aspect-[16/9]"
         >
           <Image
             src="/office.png"
@@ -53,10 +52,9 @@ export default function AboutSection({ variant = "embedded" }) {
             sizes="(min-width:1280px) 60vw, (min-width:1024px) 70vw, (min-width:640px) 90vw, 100vw"
             className="
       object-cover
-      object-[50%_62%]        /* phones: show a bit lower to keep devices in frame */
-      xs:object-[50%_56%]
-      sm:object-[48%_50%]     /* tablets */
-      lg:object-[55%_50%]     /* desktops */
+      object-[62%_54%]      /* phones: push view to the RIGHT and slightly DOWN */
+      sm:object-[52%_50%]   /* tablets */
+      lg:object-[55%_50%]   /* desktops */
     "
           />
 
@@ -66,7 +64,7 @@ export default function AboutSection({ variant = "embedded" }) {
             className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-transparent"
           />
 
-          {/* centered CTA, with notch-safe bottom spacing */}
+          {/* centered CTA */}
           <Link
             href="/contact"
             className="absolute left-1/2 -translate-x-1/2 z-10
