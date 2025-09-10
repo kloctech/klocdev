@@ -39,40 +39,52 @@ export default function AboutSection({ variant = "embedded" }) {
         } lg:grid-cols-2`}
       >
         {/* LEFT: big stat card (tuned for laptop) */}
+        {/* VISUAL CARD (mobile-friendly) */}
         <div
           className="relative w-full overflow-hidden rounded-2xl
-                aspect-[4/5] sm:aspect-[3/2] lg:aspect-[5/3] xl:aspect-[16/9]"
+                h-[380px] xs:h-[440px] sm:h-auto
+                sm:aspect-[3/2] lg:aspect-[5/3] xl:aspect-[16/9]"
         >
           <Image
             src="/office.png"
-            alt=""
+            alt="Laptop and phones showing dev stack"
             fill
             priority
-            sizes="(min-width:1280px) 50vw, 100vw"
-            className="object-cover object-[50%_42%]" /* lift subject slightly */
+            sizes="(min-width:1280px) 60vw, (min-width:1024px) 70vw, (min-width:640px) 90vw, 100vw"
+            className="
+      object-cover
+      object-[50%_62%]        /* phones: show a bit lower to keep devices in frame */
+      xs:object-[50%_56%]
+      sm:object-[48%_50%]     /* tablets */
+      lg:object-[55%_50%]     /* desktops */
+    "
           />
 
-          {/* dark gradient */}
+          {/* dark gradient for readability */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-transparent"
           />
 
-          {/* button — sit lower on every breakpoint, esp. laptop */}
-          <div className="absolute inset-x-0 bottom-1 sm:bottom-2 md:bottom-3 lg:bottom-5 xl:bottom-7 2xl:bottom-9 z-10 flex justify-center">
-            <Link
-              href="/contact"
-              className="relative top-4 sm:top-6 inline-block rounded-2xl bg-white/10 px-4 py-2 text-sm font-medium text-white ring-1 ring-white/10"
-            >
-              Get started now
-            </Link>
-          </div>
+          {/* centered CTA, with notch-safe bottom spacing */}
+          <Link
+            href="/contact"
+            className="absolute left-1/2 -translate-x-1/2 z-10
+               inline-block rounded-2xl bg-white/10 px-5 py-2.5
+               text-sm md:text-base font-medium text-white ring-1 ring-white/10 hover:bg-white/15"
+            style={{ bottom: "max(1rem, env(safe-area-inset-bottom))" }}
+          >
+            Get started now
+          </Link>
 
-          {/* abstract shapes */}
-          <div aria-hidden className="pointer-events-none absolute inset-0">
-            <div className="absolute -right-10 bottom-0 h-56 w-80 rounded-tl-[2rem] bg-gradient-to-br from-violet-500/35 to-indigo-700/25 blur-xl" />
-            <div className="absolute -left-8 -bottom-10 h-40 w-40 rotate-12 rounded-2xl bg-indigo-400/25 blur-lg" />
-            <div className="absolute right-24 -top-6 h-24 w-24 rounded-full bg-fuchsia-500/25 blur-xl" />
+          {/* decorative glows — hidden on very small screens */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 hidden sm:block"
+          >
+            <div className="absolute -right-10 bottom-0 h-56 w-80 rounded-tl-[2rem] bg-gradient-to-br from-violet-500/30 to-indigo-700/20 blur-xl" />
+            <div className="absolute -left-8 -bottom-10 h-40 w-40 rotate-12 rounded-2xl bg-indigo-400/20 blur-lg" />
+            <div className="absolute right-24 -top-6 h-24 w-24 rounded-full bg-fuchsia-500/20 blur-xl" />
           </div>
         </div>
 
