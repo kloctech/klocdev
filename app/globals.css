@@ -107,7 +107,8 @@ html, body { height: 100%; }
 /* Base text stays visible; the shimmer is an overlay */
 .shiny-stable {
   position: relative;
-  display: inline-block;
+  display: inline;
+    white-space: normal;
 }
 
 .shiny-stable::after {
@@ -115,6 +116,7 @@ html, body { height: 100%; }
   position: absolute;
   inset: 0;
   pointer-events: none;
+    white-space: inherit; 
 
   /* the moving highlight */
   background: linear-gradient(
@@ -141,3 +143,18 @@ html, body { height: 100%; }
 .case-desc strong, .case-desc h2, .case-desc h3 { color: #0f172a; }  /* slate-900 */
 .case-desc a { color: #059669; text-decoration: underline; }        /* emerald-600 */
 
+.text-pretty  { text-wrap: pretty; }   /* nicer line breaks */
+.hyphens-auto { 
+  hyphens: auto;
+  -webkit-hyphens: auto;  /* iOS Safari */
+  -ms-hyphens: auto;      /* old Edge/IE */
+}
+
+@supports (overflow-wrap: anywhere) {
+  .break-anywhere { overflow-wrap: anywhere; }
+}
+
+/* If the shimmer still causes odd breaks on tiny phones, hide overlay there */
+@media (max-width: 420px) {
+  .shiny-stable::after { display: none; }
+}

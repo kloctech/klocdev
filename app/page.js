@@ -41,14 +41,20 @@ export default function Home() {
         <br />
         <span className="text-violet-400">Brought to Life</span>{" "}
       </h1>
-      <p className="mt-1 text-sm sm:text-base leading-snug text-center font-medium text-slate-300">
+      <p
+        className="mx-auto mt-3
+             max-w-[32ch] sm:max-w-[60ch] lg:max-w-[65ch]
+             text-[15px] sm:text-base leading-7
+             text-center font-medium text-slate-300
+             text-pretty hyphens-auto break-anywhere sm:break-words
+             px-6 sm:px-0"
+      >
         <span className="shiny-stable">
-          Leading full-stack developers specializing in SaaS and AI platforms
-          delivering,
-          <br />
-          affordable and reliable website development services.
+          Leading full-stack developers specializing in SaaS and AI platforms,
+          delivering affordable and reliable website development services.
         </span>
       </p>
+
       <Link
         href="/portfolio"
         className="mt-6 mb-40 mx-auto flex w-fit items-center justify-center rounded-xl bg-white px-5 py-2.5 text-base sm:text-lg font-semibold text-violet-600 shadow-md ring-1 ring-white/10 transition-colors duration-200"
