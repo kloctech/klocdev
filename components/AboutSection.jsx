@@ -38,26 +38,31 @@ export default function AboutSection({ variant = "embedded" }) {
           isStandalone ? "pb-20" : "pb-12"
         } lg:grid-cols-2`}
       >
-        {/* LEFT: big stat card */}
-        <div className="relative w-full aspect-[16/9]">
+        {/* LEFT: big stat card (tuned for laptop) */}
+        <div
+          className="relative w-full overflow-hidden rounded-2xl
+                aspect-[4/5] sm:aspect-[3/2] lg:aspect-[5/3] xl:aspect-[16/9]"
+        >
           <Image
             src="/office.png"
-            alt="" // decorative
+            alt=""
             fill
             priority
-            // sizes="(min-width:1024px) 50vw, 100vw"
-            className="object-cover"
+            sizes="(min-width:1280px) 50vw, 100vw"
+            className="object-cover object-[50%_42%]" /* lift subject slightly */
           />
 
-          {/* subtle dark gradient so the button pops */}
+          {/* dark gradient */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-transparent"
           />
-          <div className="absolute inset-x-0 bottom-6 z-10 flex justify-center">
+
+          {/* button — sit lower on every breakpoint, esp. laptop */}
+          <div className="absolute inset-x-0 bottom-1 sm:bottom-2 md:bottom-3 lg:bottom-5 xl:bottom-7 2xl:bottom-9 z-10 flex justify-center">
             <Link
               href="/contact"
-              className="inline-block rounded-2xl bg-white/10 px-5 py-2.5 text-sm font-medium text-white ring-1 ring-white/15 backdrop-blur hover:bg-white/15 hover:ring-white/25 transition"
+              className="relative top-4 sm:top-6 inline-block rounded-2xl bg-white/10 px-4 py-2 text-sm font-medium text-white ring-1 ring-white/10"
             >
               Get started now
             </Link>
