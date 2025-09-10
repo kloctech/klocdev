@@ -5,7 +5,7 @@ import SquiggleUnderline from "./SquiggleUnderline";
 export default function ServicesSection({ withCTA = true }) {
   return (
     // id lets the header link jump here; scroll-mt keeps it visible under sticky header
-    <section id="services" className="pt-0 pb-2 text-center">
+    <section id="services" className="pt-6 pb-2 text-center">
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
         Complete{" "}
         <SquiggleUnderline
@@ -14,7 +14,7 @@ export default function ServicesSection({ withCTA = true }) {
         >
           Website
         </SquiggleUnderline>
-        Development
+        {""} Development
       </h2>
 
       <p className="mx-auto mt-4 max-w-2xl text-slate-300">

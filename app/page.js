@@ -28,7 +28,7 @@ const SERVICES_TEASER = [
 
 export default function Home() {
   return (
-    <section className="relative mt-20 sm:mt-32 space-y-20">
+    <section className="relative mt-20 sm:mt-32 space-y-10">
       {/* ---- HERO ---- */}
       <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-7xl font-bold tracking-tight text-center leading-[0.9]">
         <SplitText
@@ -41,18 +41,17 @@ export default function Home() {
         <br />
         <span className="text-violet-400">Brought to Life</span>{" "}
       </h1>
-      <p className="mt-1 text-base sm:text-lg md:text-l leading-relaxed text-center font-medium text-slate-300">
-        <span
-          className="shiny-stable"
-          data-text="Leading full-stack developers specializing in SaaS and AI platforms, delivering affordable and reliable website development services."
-        >
-          Leading full-stack developers specializing in SaaS and AI platforms,
-          delivering affordable and reliable website development services.
+      <p className="mt-1 text-sm sm:text-base leading-snug text-center font-medium text-slate-300">
+        <span className="shiny-stable">
+          Leading full-stack developers specializing in SaaS and AI platforms
+          delivering,
+          <br />
+          affordable and reliable website development services.
         </span>
       </p>
       <Link
         href="/portfolio"
-        className="mt-6 mb-40 mx-auto flex w-fit items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-violet-600 shadow ring-1 ring-white/10 transition-colors duration-200"
+        className="mt-6 mb-40 mx-auto flex w-fit items-center justify-center rounded-xl bg-white px-5 py-2.5 text-base sm:text-lg font-semibold text-violet-600 shadow-md ring-1 ring-white/10 transition-colors duration-200"
       >
         See our work
       </Link>

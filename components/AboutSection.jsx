@@ -13,7 +13,7 @@ export default function AboutSection({ variant = "embedded" }) {
       {/* HERO */}
       <section
         className={`mx-auto max-w-7xl px-4 pb-8 ${
-          isStandalone ? "pt-16 sm:pt-24" : "pt-10"
+          isStandalone ? "pt-20 sm:pt-28" : "pt-14"
         } text-center`}
       >
         <h1 className="mx-auto max-w-4xl text-2xl sm:text-5xl font-bold tracking-tight">
@@ -43,23 +43,21 @@ export default function AboutSection({ variant = "embedded" }) {
           <Image
             src="/office.png"
             alt="" // decorative
-            aria-hidden // decorative
             fill
             priority
             sizes="(min-width:1024px) 50vw, 100vw"
+            className="object-cover"
           />
-          <h2 className="text-3xl font-semibold leading-tight text-white">
-            200+ Projects <span className="ml-2">Launched</span>
-          </h2>
-          <p className="mt-2 max-w-xl text-slate-300">
-            With over 200 successful projects, <br />
-            we bring experience.
-          </p>
 
-          <div className="mt-62  flex justify-center">
+          {/* subtle dark gradient so the button pops */}
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent"
+          />
+          <div className="absolute inset-x-0 bottom-6 z-10 flex justify-center">
             <Link
               href="/contact"
-              className="mt-5 inline-block rounded-2xl bg-white/10 px-4 py-2 text-sm font-medium text-white ring-1 ring-white/10"
+              className="inline-block rounded-2xl bg-white/10 px-5 py-2.5 text-sm font-medium text-white ring-1 ring-white/15 backdrop-blur hover:bg-white/15 hover:ring-white/25 transition"
             >
               Get started now
             </Link>

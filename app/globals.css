@@ -77,7 +77,7 @@ html, body { height: 100%; }
 .rolling-track {
   display: flex;
   flex-direction: column;
-  animation: roll 22s linear infinite;
+  animation: roll 16s linear infinite;
   will-change: transform;
 }
 

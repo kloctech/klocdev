@@ -22,7 +22,7 @@ const ATA = {
     "Figma",
   ],
   // Replace these with your actual PNGs (public/images/ata/*.png)
-  screens: ["/wb1.webp", "/w2.webp", "/w3.png", "/w4.jpg"],
+  screens: [],
 };
 
 export default function Page() {

@@ -38,7 +38,7 @@ export default function Header() {
                 src="/logo.png"
                 alt="KLoc logo"
                 fill
-                sizes="36px"
+                sizes="44px"
                 priority
               />
             </div>
