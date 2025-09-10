@@ -73,7 +73,6 @@ export default function AboutSection({ variant = "embedded" }) {
             <div className="absolute -right-10 bottom-0 h-56 w-80 rounded-tl-[2rem] bg-gradient-to-br from-violet-500/35 to-indigo-700/25 blur-xl" />
             <div className="absolute -left-8 -bottom-10 h-40 w-40 rotate-12 rounded-2xl bg-indigo-400/25 blur-lg" />
             <div className="absolute right-24 -top-6 h-24 w-24 rounded-full bg-fuchsia-500/25 blur-xl" />
-            <div className="absolute bottom-10 left-8 h-10 w-20 rounded-lg bg-slate-900/60" />
           </div>
         </div>
 
