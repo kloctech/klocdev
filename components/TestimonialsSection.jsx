@@ -5,45 +5,44 @@ import SquiggleUnderline from "@/components/SquiggleUnderline";
 
 const TESTIMONIALS = [
   {
-    name: "Jake Marine",
-    role: "Anchorize",
-    avatar: "https://i.pravatar.cc/80?img=67",
+    name: "Ana",
+    role: "Numerana",
+    avatar: "https://i.pravatar.cc/80?img=5",
     quote: "I wanted to thank KLoc for all of the amazing work… UI/UX…",
   },
   {
-    name: "Grant Bolton",
-    role: "Bolton & AL",
-    avatar: "https://i.pravatar.cc/80?img=12",
+    name: "Shashi",
+    role: "Unipro",
+    avatar: "https://i.pravatar.cc/80?img=33",
     quote:
       "Expert SaaS developers! Scalable, high-performing platform… Highly recommended!",
   },
   {
-    name: "Michelle Blake",
-    role: "Auto-Auctions",
-    avatar: "https://i.pravatar.cc/80?img=5",
+    name: "Smitha",
+    role: "IWAS",
+    avatar: "https://i.pravatar.cc/80?img=24",
     quote:
       "Amazing experience—excellent communication, efficiency, and a deep understanding of our goals.",
   },
   {
-    name: "Michelle Blake",
-    role: "Auto-Auctions",
+    name: "Stefanov",
+    role: "IWAS",
     avatar: "https://i.pravatar.cc/80?img=5",
+    quote: "The best agency I worked with. Clear, transparent and on-time.",
+  },
+  {
+    name: "Hermann",
+    role: "Auto-Auctions",
+    avatar: "https://i.pravatar.cc/80?img=8",
     quote:
       "Amazing experience—excellent communication, efficiency, and a deep understanding of our goals.",
   },
   {
-    name: "Michelle Blake",
-    role: "Auto-Auctions",
-    avatar: "https://i.pravatar.cc/80?img=5",
+    name: "Romi",
+    role: "Smart Tracker",
+    avatar: "https://i.pravatar.cc/80?img=67",
     quote:
-      "Amazing experience—excellent communication, efficiency, and a deep understanding of our goals.",
-  },
-  {
-    name: "Michelle Blake",
-    role: "Auto-Auctions",
-    avatar: "https://i.pravatar.cc/80?img=5",
-    quote:
-      "Amazing experience—excellent communication, efficiency, and a deep understanding of our goals.",
+      "Excellent technical skills. We got a product better than we anticipated.",
   },
 ];
 
