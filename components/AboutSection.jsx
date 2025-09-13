@@ -45,8 +45,8 @@ export default function AboutSection({ variant = "embedded" }) {
                 sm:aspect-[4/3] lg:aspect-[5/3] xl:aspect-[16/9]"
         >
           <Image
-            src="/Office.png"
-            alt="Laptop and phones showing dev stack"
+            src="/office.png"
+            alt="office"
             fill
             priority
             sizes="(min-width:1280px) 60vw, (min-width:1024px) 70vw, (min-width:640px) 90vw, 100vw"
