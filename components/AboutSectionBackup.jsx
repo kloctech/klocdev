@@ -38,9 +38,11 @@ export default function AboutSection({ variant = "embedded" }) {
           isStandalone ? "pb-20" : "pb-12"
         } lg:grid-cols-2`}
       >
+        {/* VISUAL CARD (tuned for phones) */}
         <div
           className="relative w-full overflow-hidden rounded-2xl
-              aspect-[9/16] sm:aspect-[4/3] lg:aspect-[5/3] xl:aspect-[16/9]"
+                h-[460px] sm:h-auto
+                sm:aspect-[4/3] lg:aspect-[5/3] xl:aspect-[16/9]"
         >
           <Image
             src="/office.png"
@@ -48,8 +50,12 @@ export default function AboutSection({ variant = "embedded" }) {
             fill
             priority
             sizes="(min-width:1280px) 60vw, (min-width:1024px) 70vw, (min-width:640px) 90vw, 100vw"
-            className="!object-contain !object-center"
-            style={{ objectFit: "contain", objectPosition: "center center" }}
+            className="
+      object-cover
+      object-[62%_54%]      /* phones: push view to the RIGHT and slightly DOWN */
+      sm:object-[52%_50%]   /* tablets */
+      lg:object-[55%_50%]   /* desktops */
+    "
           />
 
           {/* dark gradient for readability */}
