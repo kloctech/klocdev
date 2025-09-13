@@ -38,46 +38,18 @@ export default function AboutSection({ variant = "embedded" }) {
           isStandalone ? "pb-20" : "pb-12"
         } lg:grid-cols-2`}
       >
-        <div
-          className="relative w-full overflow-hidden rounded-2xl
-              aspect-[9/16] sm:aspect-[4/3] lg:aspect-[5/3] xl:aspect-[16/9]"
-        >
-          <Image
-            src="/office.png"
-            alt="office"
-            fill
-            priority
-            sizes="(min-width:1280px) 60vw, (min-width:1024px) 70vw, (min-width:640px) 90vw, 100vw"
-            className="!object-contain !object-center"
-            style={{ objectFit: "contain", objectPosition: "center center" }}
-          />
-
-          {/* dark gradient for readability */}
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-transparent"
-          />
-
-          {/* centered CTA */}
-          <Link
-            href="/contact"
-            className="absolute left-1/2 -translate-x-1/2 z-10
-               inline-block rounded-2xl bg-white/10 px-5 py-2.5
-               text-sm md:text-base font-medium text-white ring-1 ring-white/10 hover:bg-white/15"
-            style={{ bottom: "max(1rem, env(safe-area-inset-bottom))" }}
-          >
-            Get started now
-          </Link>
-
-          {/* decorative glows — hidden on very small screens */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 hidden sm:block"
-          >
-            <div className="absolute -right-10 bottom-0 h-56 w-80 rounded-tl-[2rem] bg-gradient-to-br from-violet-500/30 to-indigo-700/20 blur-xl" />
-            <div className="absolute -left-8 -bottom-10 h-40 w-40 rotate-12 rounded-2xl bg-indigo-400/20 blur-lg" />
-            <div className="absolute right-24 -top-6 h-24 w-24 rounded-full bg-fuchsia-500/20 blur-xl" />
-          </div>
+        <div className="relative mx-auto w-full max-w-3xl sm:max-w-5xl">
+          <picture>
+            {/* mobile first */}
+            <source media="(max-width: 640px)" srcSet="/mob.png" />
+            {/* default (tablet/desktop) */}
+            <img
+              src="/desk.png"
+              alt="Experienced Full-Stack Developers"
+              className="block w-full h-auto"
+              loading="eager"
+            />
+          </picture>
         </div>
 
         {/* RIGHT: three feature cards */}
