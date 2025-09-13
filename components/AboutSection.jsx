@@ -50,6 +50,15 @@ export default function AboutSection({ variant = "embedded" }) {
               loading="eager"
             />
           </picture>
+          <Link
+            href="/contact"
+            className="absolute left-1/2 -translate-x-1/2 z-10
+               inline-block rounded-2xl bg-white/10 px-5 py-2.5
+               text-sm md:text-base font-medium text-white ring-1 ring-white/10 hover:bg-white/15"
+            style={{ bottom: "max(1rem, env(safe-area-inset-bottom))" }}
+          >
+            Get started now
+          </Link>
         </div>
 
         {/* RIGHT: three feature cards */}
