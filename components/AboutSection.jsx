@@ -12,7 +12,7 @@ export default function AboutSection({ variant = "embedded" }) {
     <>
       {/* HERO */}
       <section
-        className={`mx-auto max-w-7xl px-4 pb-8 ${
+        className={`mx-auto max-w-7xl px-4 pb-2 sm:pb-8 ${
           isStandalone ? "pt-20 sm:pt-28" : "pt-14"
         } text-center`}
       >
@@ -26,7 +26,7 @@ export default function AboutSection({ variant = "embedded" }) {
           </SquiggleUnderline>{" "}
           Developers
         </h1>
-        <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-300 sm:text-base">
+        <p className="mx-auto mt-2 sm:mt-4 max-w-3xl text-sm text-slate-300 sm:text-base">
           With 200+ projects delivered, we offer fast, reliable web development
           and unlimited revisions to bring your vision to life.
         </p>
@@ -34,11 +34,11 @@ export default function AboutSection({ variant = "embedded" }) {
 
       {/* GRID: left stat card + right features */}
       <section
-        className={`mx-auto grid max-w-7xl gap-6 px-4 ${
+        className={`mx-auto grid max-w-7xl gap-4 px-4 -mt-2 sm:mt-0 ${
           isStandalone ? "pb-20" : "pb-12"
         } lg:grid-cols-2`}
       >
-        <div className="relative mx-auto w-full max-w-3xl sm:max-w-5xl">
+        <div className="relative w-full">
           <picture>
             {/* mobile first */}
             <source media="(max-width: 640px)" srcSet="/mob.png" />
