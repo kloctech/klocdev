@@ -59,22 +59,11 @@ export default function QuoteForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-sm"
+      className="rounded-2xl border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur-sm"
     >
-      {submitted && (
-        <div className="mb-6 rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-3 text-emerald-300">
-          ✅ Thank you! We'll get back to you soon.
-        </div>
-      )}
-      {error && (
-        <div className="mb-6 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-red-300">
-          ❌ {error}
-        </div>
-      )}
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-        {/* Name */}
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-1 block text-sm text-slate-300">
+          <label htmlFor="name" className="mb-2 block text-sm font-medium text-slate-200">
             Your Name *
           </label>
           <input
@@ -82,12 +71,12 @@ export default function QuoteForm() {
             name="name"
             required
             placeholder="Ada Lovelace"
-            className="w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-slate-100 placeholder:text-slate-500 focus:border-violet-400 focus:outline-none"
+            className="w-full rounded-lg border border-white/10 bg-slate-900/80 px-4 py-2.5 text-slate-100 placeholder:text-slate-500 transition-all duration-200 hover:border-white/20 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-400/20"
           />
         </div>
-        {/* Email */}
+
         <div>
-          <label htmlFor="email" className="mb-1 block text-sm text-slate-300">
+          <label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-200">
             Email *
           </label>
           <input
@@ -96,13 +85,13 @@ export default function QuoteForm() {
             type="email"
             required
             placeholder="you@example.com"
-            className="w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-slate-100 placeholder:text-slate-500 focus:border-violet-400 focus:outline-none"
+            className="w-full rounded-lg border border-white/10 bg-slate-900/80 px-4 py-2.5 text-slate-100 placeholder:text-slate-500 transition-all duration-200 hover:border-white/20 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-400/20"
           />
         </div>
       </div>
-      {/* Phone */}
-      <div>
-        <label htmlFor="phone" className="mb-1 block text-sm text-slate-300">
+
+      <div className="mt-6">
+        <label htmlFor="phone" className="mb-2 block text-sm font-medium text-slate-200">
           Phone (optional)
         </label>
         <input
@@ -111,25 +100,25 @@ export default function QuoteForm() {
           type="tel"
           pattern="^[0-9()+\-\s]{7,20}$"
           placeholder="+1 555 123 4567"
-          className="w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-slate-100 placeholder:text-slate-500 focus:border-violet-400 focus:outline-none"
+          className="w-full rounded-lg border border-white/10 bg-slate-900/80 px-4 py-2.5 text-slate-100 placeholder:text-slate-500 transition-all duration-200 hover:border-white/20 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-400/20"
         />
-        <p className="mt-1 text-xs text-slate-400">Digits and + ( ) - only.</p>
+        <p className="mt-2 text-xs text-slate-400">Digits and + ( ) - only</p>
       </div>
-      {/* Company */}
-      <div>
-        <label htmlFor="company" className="mb-1 block text-sm text-slate-300">
+
+      <div className="mt-6">
+        <label htmlFor="company" className="mb-2 block text-sm font-medium text-slate-200">
           Company (optional)
         </label>
         <input
           id="company"
           name="company"
           placeholder="Acme Co."
-          className="w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-slate-100 placeholder:text-slate-500 focus:border-violet-400 focus:outline-none"
+          className="w-full rounded-lg border border-white/10 bg-slate-900/80 px-4 py-2.5 text-slate-100 placeholder:text-slate-500 transition-all duration-200 hover:border-white/20 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-400/20"
         />
       </div>
-      {/* Website */}
-      <div className="md:col-span-2">
-        <label htmlFor="website" className="mb-1 block text-sm text-slate-300">
+
+      <div className="mt-6">
+        <label htmlFor="website" className="mb-2 block text-sm font-medium text-slate-200">
           Website / Link (optional)
         </label>
         <input
@@ -137,12 +126,12 @@ export default function QuoteForm() {
           name="website"
           type="url"
           placeholder="https://example.com"
-          className="w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-slate-100 placeholder:text-slate-500 focus:border-violet-400 focus:outline-none"
+          className="w-full rounded-lg border border-white/10 bg-slate-900/80 px-4 py-2.5 text-slate-100 placeholder:text-slate-500 transition-all duration-200 hover:border-white/20 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-400/20"
         />
       </div>
-      {/* Services checkboxes */}
-      <fieldset className="mt-6">
-        <legend className="mb-2 text-sm font-medium text-slate-200">
+
+      <fieldset className="mt-8">
+        <legend className="mb-3 text-sm font-medium text-slate-200">
           What do you need? (choose one or more)
         </legend>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -156,50 +145,50 @@ export default function QuoteForm() {
           ].map((label) => (
             <label
               key={label}
-              className="flex cursor-pointer items-center gap-2 rounded-lg border border-white/10 bg-slate-900/60 px-3 py-2 text-slate-200 hover:border-violet-400/60"
+              className="flex cursor-pointer items-center gap-2.5 rounded-lg border border-white/10 bg-slate-900/60 px-4 py-3 text-sm text-slate-200 transition-all duration-200 hover:border-violet-400/60 hover:bg-slate-900/80"
             >
               <input
                 type="checkbox"
                 name="services"
                 value={label}
-                className="h-4 w-4 rounded border-white/20 bg-slate-800 text-violet-500 focus:ring-violet-400"
+                className="h-4 w-4 rounded border-white/20 bg-slate-800 text-violet-500 transition-colors focus:ring-2 focus:ring-violet-400/20"
               />
               <span>{label}</span>
             </label>
           ))}
         </div>
       </fieldset>
-      {/* Budget radios */}
-      <fieldset className="mt-6">
-        <legend className="mb-2 text-sm font-medium text-slate-200">
+
+      <fieldset className="mt-8">
+        <legend className="mb-3 text-sm font-medium text-slate-200">
           Approx. budget
         </legend>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {["< $1k", "$1k–$3k", "$3k–$10k", "$10k+"].map((b) => (
             <label
               key={b}
-              className="flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-white/10 bg-slate-900/60 px-3 py-2 text-slate-200 hover:border-violet-400/60"
+              className="flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-white/10 bg-slate-900/60 px-4 py-3 text-sm text-slate-200 transition-all duration-200 hover:border-violet-400/60 hover:bg-slate-900/80"
             >
               <input
                 type="radio"
                 name="budget"
                 value={b}
-                className="h-4 w-4 border-white/20 text-violet-500 focus:ring-violet-400"
+                className="h-4 w-4 border-white/20 text-violet-500 transition-colors focus:ring-2 focus:ring-violet-400/20"
               />
               <span>{b}</span>
             </label>
           ))}
         </div>
       </fieldset>
-      {/* Timeline select */}
-      <div className="mt-6">
-        <label htmlFor="timeline" className="mb-1 block text-sm text-slate-300">
+
+      <div className="mt-8">
+        <label htmlFor="timeline" className="mb-2 block text-sm font-medium text-slate-200">
           When do you want to start?
         </label>
         <select
           id="timeline"
           name="timeline"
-          className="w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-slate-100 focus:border-violet-400 focus:outline-none"
+          className="w-full rounded-lg border border-white/10 bg-slate-900/80 px-4 py-2.5 text-slate-100 transition-all duration-200 hover:border-white/20 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-400/20"
           defaultValue="Soon"
         >
           {["ASAP", "2–4 weeks", "1–3 months", "Flexible"].map((t) => (
@@ -209,9 +198,9 @@ export default function QuoteForm() {
           ))}
         </select>
       </div>
-      {/* Project description */}
-      <div className="mt-6">
-        <label htmlFor="details" className="mb-1 block text-sm text-slate-300">
+
+      <div className="mt-8">
+        <label htmlFor="details" className="mb-2 block text-sm font-medium text-slate-200">
           Tell us about your project *
         </label>
         <textarea
@@ -220,14 +209,14 @@ export default function QuoteForm() {
           required
           rows={5}
           placeholder="What are you building? Any links or examples you like?"
-          className="w-full resize-y rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-slate-100 placeholder:text-slate-500 focus:border-violet-400 focus:outline-none"
+          className="w-full resize-y rounded-lg border border-white/10 bg-slate-900/80 px-4 py-2.5 text-slate-100 placeholder:text-slate-500 transition-all duration-200 hover:border-white/20 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-400/20"
         />
       </div>
-      {/* Attachment */}
-      <div className="mt-6">
+
+      {/* <div className="mt-8">
         <label
           htmlFor="attachment"
-          className="mb-1 block text-sm text-slate-300"
+          className="mb-2 block text-sm font-medium text-slate-200"
         >
           Attachment (optional)
         </label>
@@ -236,34 +225,45 @@ export default function QuoteForm() {
           name="attachment"
           type="file"
           accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
-          className="block w-full text-sm text-slate-300 file:mr-4 file:rounded-md file:border-0 file:bg-violet-600 file:px-4 file:py-2 file:text-white hover:file:bg-violet-500"
+          className="block w-full text-sm text-slate-300 file:mr-4 file:rounded-md file:border-0 file:bg-violet-600 file:px-4 file:py-2 file:text-white file:transition-colors hover:file:bg-violet-500"
         />
-        <p className="mt-1 text-xs text-slate-400">Max ~5MB works best.</p>
-      </div>
-      {/* Consent */}
-      <label className="mt-6 flex items-start gap-3">
+        <p className="mt-2 text-xs text-slate-400">Max ~5MB works best</p>
+      </div> */}
+
+      <label className="mt-8 flex items-start gap-3">
         <input
           type="checkbox"
           name="consent"
           required
-          className="mt-1 h-4 w-4 rounded border-white/20 bg-slate-800 text-violet-500 focus:ring-violet-400"
+          className="mt-0.5 h-4 w-4 rounded border-white/20 bg-slate-800 text-violet-500 transition-colors focus:ring-2 focus:ring-violet-400/20"
         />
         <span className="text-sm text-slate-300">
           You can contact me about this project. I agree to the terms/privacy.
         </span>
       </label>
-      {/* Buttons */}
+
+      {submitted && (
+        <div className="mt-6 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-300">
+          ✓ Thank you! We'll get back to you soon.
+        </div>
+      )}
+      {error && (
+        <div className="mt-6 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+          ✗ {error}
+        </div>
+      )}
+
       <div className="mt-8 flex flex-wrap items-center gap-3">
         <button
           type="submit"
           disabled={loading}
-          className="inline-flex items-center justify-center rounded-lg bg-violet-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-400 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="inline-flex items-center justify-center rounded-lg bg-violet-600 px-6 py-3 text-sm font-medium text-white shadow-lg shadow-violet-500/20 transition-all duration-200 hover:bg-violet-500 hover:shadow-violet-500/30 focus:outline-none focus:ring-2 focus:ring-violet-400 focus:ring-offset-2 focus:ring-offset-slate-950 disabled:cursor-not-allowed disabled:opacity-50"
         >
           {loading ? "Submitting..." : "Get my quote →"}
         </button>
         <button
           type="reset"
-          className="rounded-lg border border-white/15 px-4 py-2 text-sm text-slate-200 hover:border-white/30"
+          className="rounded-lg border border-white/15 px-5 py-3 text-sm text-slate-200 transition-all duration-200 hover:border-white/30 hover:bg-white/5"
         >
           Reset
         </button>
