@@ -3,28 +3,57 @@ import { useState } from "react";
 
 export default function QuoteForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
 
-    // Let the browser check required + patterns first
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
 
-    const data = new FormData(form);
-    const payload = Object.fromEntries(data.entries());
-    payload.services = data.getAll("services"); // collect all selected checkboxes
+    setLoading(true);
+    setError(null);
 
-    // For now, just log it. Later we'll POST this to an API route/email.
-    console.log("Form payload:", payload);
-    setSubmitted(true);
-    form.reset();
+    try {
+      const data = new FormData(form);
+      const payload = {
+        name: data.get("name"),
+        email: data.get("email"),
+        phone: data.get("phone"),
+        company: data.get("company"),
+        website: data.get("website"),
+        services: data.getAll("services"),
+        budget: data.get("budget"),
+        timeline: data.get("timeline"),
+        details: data.get("details"),
+        consent: data.get("consent") === "on",
+      };
 
-    // Hide success after a few seconds
-    setTimeout(() => setSubmitted(false), 4000);
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitted(true);
+        form.reset();
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        setError(result.error || "Failed to submit form");
+      }
+    } catch (err) {
+      setError("Network error. Please try again.");
+      console.error("Submission error:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -34,7 +63,12 @@ export default function QuoteForm() {
     >
       {submitted && (
         <div className="mb-6 rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-3 text-emerald-300">
-          ✅ Thank you! Your info was captured (check your browser Console).
+          ✅ Thank you! We'll get back to you soon.
+        </div>
+      )}
+      {error && (
+        <div className="mb-6 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-red-300">
+          ❌ {error}
         </div>
       )}
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -222,9 +256,10 @@ export default function QuoteForm() {
       <div className="mt-8 flex flex-wrap items-center gap-3">
         <button
           type="submit"
-          className="inline-flex items-center justify-center rounded-lg bg-violet-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-400"
+          disabled={loading}
+          className="inline-flex items-center justify-center rounded-lg bg-violet-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-400 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Get my quote →
+          {loading ? "Submitting..." : "Get my quote →"}
         </button>
         <button
           type="reset"

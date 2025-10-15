@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# documentation with sensitive setup info
+GOOGLE_APPS_SCRIPT_SETUP.md
+AppScript.gs
