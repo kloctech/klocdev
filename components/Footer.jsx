@@ -1,23 +1,6 @@
 "use client";
 import Link from "next/link";
-
-// Simple logo mark similar to the screenshot
-function LogoMark(props) {
-  return (
-    <svg viewBox="0 0 40 40" aria-hidden="true" className="h-8 w-8" {...props}>
-      <g
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-      >
-        <path d="M8 11 L18 6 L32 13" />
-        <path d="M8 19 L18 14 L32 21" />
-        <path d="M8 27 L18 22 L32 29" />
-      </g>
-    </svg>
-  );
-}
+import Image from "next/image";
 
 export default function Footer({
   brand = { primary: "#8b5cf6", accent: "#a78bfa", bg: "#0a0a23" },
@@ -104,17 +87,15 @@ export default function Footer({
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-12">
-        {/* Brand */}
-        <div className="mb-8 flex items-center gap-3">
-          <span className="" style={{ color: brand.primary }}>
-            <LogoMark />
-          </span>
-          <span
-            className="text-lg font-semibold tracking-wider"
-            style={{ color: brand.accent }}
-          >
-            {brandName}
-          </span>
+        <div className="mb-8">
+          <div className="relative h-20 w-20">
+            <Image
+              src="/kloc.dev.png"
+              alt="KLoc logo"
+              fill
+              sizes="80px"
+            />
+          </div>
         </div>
 
         {/* Top grid: CTA + link columns */}

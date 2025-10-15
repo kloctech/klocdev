@@ -32,14 +32,15 @@ export default function Header() {
         {/* GRID: logo | nav (centered) | CTA + hamburger (right) */}
         <div className="grid grid-cols-[auto_1fr_auto] items-center">
           {/* Left: Logo */}
-          <Link href="/" aria-label="Home" className="flex items-center">
-            <div className={squeezed ? "relative h-7 w-7" : "relative h-9 w-9"}>
+          <Link href="/" aria-label="Home" className="flex items-center justify-center">
+            <div className={squeezed ? "relative h-9 w-9" : "relative h-14 w-14"}>
               <Image
-                src="/logo.png"
+                src="/kloc.dev.png"
                 alt="KLoc logo"
                 fill
-                sizes="44px"
+                sizes="56px"
                 priority
+                className="object-contain"
               />
             </div>
           </Link>

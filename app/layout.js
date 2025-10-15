@@ -11,7 +11,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata = {
-  icons: { icon: "/logo.png" },
+  icons: { icon: "/kloc.dev.png" },
   title: "KLoc",
   description: "Full-stack websites, SaaS, and AI/ML integrations.",
 };
