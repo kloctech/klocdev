@@ -158,3 +158,21 @@ html, body { height: 100%; }
 @media (max-width: 420px) {
   .shiny-stable::after { display: none; }
 }
+
+@layer utilities {
+  /* same visual box for every logo */
+  .logo-std { 
+    @apply inline-block shrink-0 align-top object-contain size-8 sm:size-9;
+  }
+
+  /* tidy, max-2-line titles */
+  .card-title-std {
+    @apply leading-tight;
+    /* clamp to 2 lines even if line-clamp plugin isn’t enabled */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-wrap: balance;
+  }
+}

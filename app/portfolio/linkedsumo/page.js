@@ -13,11 +13,7 @@ const LinkedSumo = {
   ].join("\n\n"),
   tech: ["Python", "PostgreSQL", "Next.js"],
   // Replace these with your actual PNGs (public/images/ata/*.png)
-  screens: [
-    "/images/Linkedsumo/ls1.png",
-    "/images/Linkedsumo/ls2.png",
-    "/images/Linkedsumo/ls3.png",
-  ],
+  screens: [],
 };
 
 export default function Page() {
