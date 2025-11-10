@@ -1,8 +1,15 @@
+// app/portfolio/marketwise-credify/page.js
 import PageHeader from "@/components/PageHeader";
 
 export const metadata = { title: "Marketwise Credify" };
 
-export default function CredifyPage() {
+export default async function CredifyPage({ searchParams }) {
+  // Next.js 15: await searchParams before using it
+  const sp = await searchParams;
+  const pageParam = Array.isArray(sp?.page) ? sp.page[0] : sp?.page;
+  const pageFromUrl = pageParam ?? "1";
+  const backHref = `/portfolio?page=${pageFromUrl}`;
+
   return (
     // Full-width dark background (matches site), content centered inside
     <main className="min-h-screen w-full bg-[#020617] text-slate-900">
@@ -18,7 +25,8 @@ export default function CredifyPage() {
         "
       >
         {/* Header bar */}
-        <PageHeader liveHref="#" /> {/* TODO: replace with real live URL */}
+        <PageHeader liveHref="#" backHref={backHref} />
+
         {/* Title + subtitle */}
         <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900">
           Marketwise Credify
@@ -26,6 +34,7 @@ export default function CredifyPage() {
         <p className="mt-2 text-lg text-slate-700">
           Automated Store Credit Distribution
         </p>
+
         {/* Body */}
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-6 text-slate-800 leading-relaxed">
@@ -69,6 +78,7 @@ export default function CredifyPage() {
             </div>
           </aside>
         </div>
+
         {/* Highlight box */}
         <div className="mt-10 rounded-2xl bg-emerald-50 border border-emerald-200 p-5 text-slate-800">
           <p className="font-medium">

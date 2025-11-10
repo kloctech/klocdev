@@ -1,8 +1,15 @@
+// app/portfolio/pack-attack/page.js
 import PageHeader from "@/components/PageHeader";
 
 export const metadata = { title: "Pack Attack" };
 
-export default function PackAttackPage() {
+export default async function PackAttackPage({ searchParams }) {
+  // Next.js 15: searchParams is async — await before use
+  const sp = await searchParams;
+  const pageParam = Array.isArray(sp?.page) ? sp.page[0] : sp?.page;
+  const pageFromUrl = pageParam ?? "1";
+  const backHref = `/portfolio?page=${pageFromUrl}`;
+
   return (
     /* Force a light page regardless of site-wide dark styles */
     // Full-width dark background
@@ -19,12 +26,14 @@ export default function PackAttackPage() {
         "
       >
         {/* Header bar */}
-        <PageHeader liveHref="#" /> {/* TODO: replace with real live URL */}
+        <PageHeader liveHref="#" backHref={backHref} />
+
         {/* Title + subtitle */}
         <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900">
           Pack Attack
         </h1>
         <p className="mt-2 text-lg text-slate-700">Shopify Store Management</p>
+
         {/* Body */}
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-6 text-slate-800 leading-relaxed">
@@ -66,6 +75,7 @@ export default function PackAttackPage() {
             </div>
           </aside>
         </div>
+
         {/* Highlight box */}
         <div className="mt-10 rounded-2xl bg-emerald-50 border border-emerald-200 p-5 text-slate-800">
           <p className="font-medium">

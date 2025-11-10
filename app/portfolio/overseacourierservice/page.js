@@ -1,11 +1,17 @@
+// app/portfolio/overseacourierservice/page.js
 import PageHeader from "@/components/PageHeader";
 
 export const metadata = { title: "OverseaCourierService" };
 
-export default function OverseaCourierServicesPage() {
+export default async function OverseaCourierServicesPage({ searchParams }) {
+  // Next.js 15: await searchParams before using it
+  const sp = await searchParams;
+  const pageParam = Array.isArray(sp?.page) ? sp.page[0] : sp?.page;
+  const pageFromUrl = pageParam ?? "1";
+  const backHref = `/portfolio?page=${pageFromUrl}`;
+
   return (
     /* Force a light page regardless of site-wide dark styles */
-
     <main className="min-h-screen w-full bg-[#020617] text-slate-900">
       {/* Centered white card */}
       <div
@@ -19,7 +25,8 @@ export default function OverseaCourierServicesPage() {
         "
       >
         {/* Header bar */}
-        <PageHeader liveHref="#" /> {/* put your real live URL */}
+        <PageHeader liveHref="#" backHref={backHref} /> {/* put your real live URL */}
+
         {/* Title + subtitle */}
         <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900">
           Oversea Courier Service
@@ -27,6 +34,7 @@ export default function OverseaCourierServicesPage() {
         <p className="mt-2 text-lg text-slate-700">
           Automated Logistics Management for Middle East
         </p>
+
         {/* ...the rest of your page exactly as you have it... */}
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-6 text-slate-800 leading-relaxed">
@@ -73,6 +81,7 @@ export default function OverseaCourierServicesPage() {
             </div>
           </aside>
         </div>
+
         <div className="mt-10 rounded-2xl bg-slate-50 border border-slate-200 p-5 text-slate-800">
           <strong className="font-semibold">Impact: </strong>
           Eliminated hundreds of hours of manual work with 100% Shopify order

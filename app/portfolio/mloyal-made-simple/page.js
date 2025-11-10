@@ -1,8 +1,15 @@
+// app/portfolio/mloyal-made-simple/page.js
 import PageHeader from "@/components/PageHeader";
 
 export const metadata = { title: "mLoyal Made Simple" };
 
-export default function MLoyalMadeSimplePage() {
+export default async function MLoyalMadeSimplePage({ searchParams }) {
+  // Next.js 15: await searchParams before using it
+  const sp = await searchParams;
+  const pageParam = Array.isArray(sp?.page) ? sp.page[0] : sp?.page;
+  const pageFromUrl = pageParam ?? "1";
+  const backHref = `/portfolio?page=${pageFromUrl}`;
+
   return (
     // Full-width dark background
     <main className="min-h-screen w-full bg-[#020617] text-slate-900">
@@ -18,7 +25,7 @@ export default function MLoyalMadeSimplePage() {
         "
       >
         {/* Header bar */}
-        <PageHeader liveHref="#" />
+        <PageHeader liveHref="#" backHref={backHref} />
 
         {/* Title + subtitle */}
         <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900">

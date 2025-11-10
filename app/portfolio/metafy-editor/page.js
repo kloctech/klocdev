@@ -1,8 +1,15 @@
+// app/portfolio/metafy-editor/page.js
 import PageHeader from "@/components/PageHeader";
 
 export const metadata = { title: "Metafy Editor" };
 
-export default function MetafyEditorPage() {
+export default async function MetafyEditorPage({ searchParams }) {
+  // Next.js 15: await searchParams before using it
+  const sp = await searchParams;
+  const pageParam = Array.isArray(sp?.page) ? sp.page[0] : sp?.page;
+  const pageFromUrl = pageParam ?? "1";
+  const backHref = `/portfolio?page=${pageFromUrl}`;
+
   return (
     /* Force a light page regardless of site-wide dark styles */
     <main className="min-h-screen w-full bg-[#020617] text-slate-900">
@@ -17,7 +24,7 @@ export default function MetafyEditorPage() {
         "
       >
         {/* Header bar */}
-        <PageHeader liveHref="#" /> {/* TODO: replace with real live URL */}
+        <PageHeader liveHref="#" backHref={backHref} />
         {/* Title + subtitle */}
         <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900">
           Metafy Editor

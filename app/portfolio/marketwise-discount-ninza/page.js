@@ -1,8 +1,15 @@
+// app/portfolio/marketwise-discount-ninja/page.js
 import PageHeader from "@/components/PageHeader";
 
 export const metadata = { title: "Marketwise Discount Ninja" };
 
-export default function DiscountNinjaPage() {
+export default async function DiscountNinjaPage({ searchParams }) {
+  // Next.js 15: await searchParams before using it
+  const sp = await searchParams;
+  const pageParam = Array.isArray(sp?.page) ? sp.page[0] : sp?.page;
+  const pageFromUrl = pageParam ?? "1";
+  const backHref = `/portfolio?page=${pageFromUrl}`;
+
   return (
     // Full-width dark background
     <main className="min-h-screen w-full bg-[#020617] text-slate-900">
@@ -20,7 +27,7 @@ export default function DiscountNinjaPage() {
         "
       >
         {/* Header bar */}
-        <PageHeader liveHref="#" />
+        <PageHeader liveHref="#" backHref={backHref} />
 
         {/* Title + subtitle */}
         <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900">
