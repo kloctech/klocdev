@@ -1,8 +1,15 @@
+// app/portfolio/smoking-cat/page.js
 import PageHeader from "@/components/PageHeader";
 
 export const metadata = { title: "Smoking Cat" };
 
-export default function SmokingCatPage() {
+export default async function SmokingCatPage({ searchParams }) {
+  // Next.js 15: searchParams is async — await before use
+  const sp = await searchParams;
+  const pageParam = Array.isArray(sp?.page) ? sp.page[0] : sp?.page;
+  const pageFromUrl = pageParam ?? "1";
+  const backHref = `/portfolio?page=${pageFromUrl}`;
+
   return (
     // Full-width dark background
     <main className="min-h-screen w-full bg-[#020617] text-slate-900">
@@ -18,7 +25,7 @@ export default function SmokingCatPage() {
         "
       >
         {/* Header bar */}
-        <PageHeader liveHref="#" backHref="/portfolio/smoking-cat" />
+        <PageHeader liveHref="#" backHref={backHref} />
 
         {/* Everything below is in one centered column */}
         <div className="mt-6 max-w-4xl mx-auto">
