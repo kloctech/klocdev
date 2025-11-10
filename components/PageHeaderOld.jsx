@@ -1,31 +1,40 @@
-// components/PageHeader.jsx
 "use client";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
-export default function PageHeader({ liveHref = "#", backHref = "/portfolio" }) {
+export default function PageHeader({ liveHref = "#" }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const pageFromUrl = searchParams?.get("page") || "1";
 
   const handleClose = () => {
-    // If we came from a portfolio page inside the app, go back (keeps scroll)
+    // If we actually came from the portfolio grid inside the app, go back (keeps scroll)
     if (typeof document !== "undefined" && document.referrer) {
       try {
         const ref = new URL(document.referrer);
-        if (ref.origin === window.location.origin && ref.pathname.startsWith("/portfolio")) {
+        if (
+          ref.origin === window.location.origin &&
+          ref.pathname.startsWith("/portfolio")
+        ) {
           router.back();
           return;
         }
-      } catch {/* ignore */}
+      } catch {
+        /* ignore */
+      }
     }
-    // Fallback: go to the passed-in portfolio URL (e.g., /portfolio?page=3)
-    router.push(backHref);
+    // Fallback: jump to the correct portfolio page from the URL
+    router.push(`/portfolio?page=${pageFromUrl}`);
   };
 
   return (
     <div className="mb-6 flex items-center justify-between">
       {/* Left: breadcrumb + Live */}
       <nav className="flex items-center gap-2 text-sm">
-        <Link href="/" className="text-slate-600 hover:underline">Home</Link>
+        <Link href="/" className="text-slate-600 hover:underline">
+          Home
+        </Link>
         <span className="text-slate-400">/</span>
         <span className="text-slate-600">Dashboard</span>
         <span className="mx-2 inline-block h-1 w-1 rounded-full bg-slate-300" />

@@ -1,4 +1,6 @@
-import ProjectsSection from "@/components/ProjectsSection";
+// app/portfolio/page.js
+import { Suspense } from "react";
+import ProjectsSection from "@/components/ProjectsSection.jsx"; // note the relative path
 
 export const metadata = {
   title: "Portfolio",
@@ -8,10 +10,12 @@ export const metadata = {
 export default function PortfolioPage() {
   return (
     <main>
-      <ProjectsSection
-        title="Portfolio"
-        subtitle="Selected projects & case studies."
-      />
+      <Suspense fallback={null}>
+        <ProjectsSection
+          title="Portfolio"
+          subtitle="Selected projects & case studies."
+        />
+      </Suspense>
     </main>
   );
 }
