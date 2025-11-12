@@ -34,14 +34,7 @@ export default async function ZentrovaPage({ searchParams }) {
         <p className="mt-2 text-lg text-slate-700">
           Curated Product Discovery Platform
         </p>
-
-        {/* Status pill */}
-        <div className="mt-5 inline-flex items-center rounded-full bg-emerald-50 ring-1 ring-emerald-200 px-4 py-2 text-sm font-medium">
-          <span className="mr-1 text-slate-700">Status:</span>
-          <span className="font-semibold text-orange-600">QC/UAT</span>
-        </div>
-
-        {/* Body */}
+       {/* Body */}
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Left column */}
           <div className="lg:col-span-2 space-y-6 text-slate-800 leading-relaxed">
