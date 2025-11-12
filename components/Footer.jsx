@@ -88,15 +88,17 @@ export default function Footer({
 
       <div className="relative mx-auto max-w-7xl px-4 py-12">
         <div className="mb-8">
-          <div className="relative h-20 w-20">
+          <div className="relative h-20 w-28 overflow-hidden">
             <Image
               src="/kloc.dev.png"
               alt="KLoc logo"
               fill
-              sizes="80px"
+              sizes="112px"
+              className="object-contain -translate-x-[6px]" // tweak 4–10px as needed
             />
           </div>
         </div>
+
 
         {/* Top grid: CTA + link columns */}
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
