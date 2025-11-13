@@ -25,7 +25,7 @@ const LOGOS = {
   PackAttack: "/logos/PackAttack.png",
   SmokingCat: "/logos/SmokingCat.png",
   Ewards: "/logos/Ewards.png",
-  Unipro: "/logos/unipro.png",
+  Unipro:"/logos/unipro.png",
 };
 
 const PROJECTS = [
@@ -174,8 +174,7 @@ export default function ProjectsSection({ initialPage = "1" }) {
                     <div
                       className={[
                         "flex sm:flex-row flex-col sm:items-start items-center justify-center px-3 sm:text-left text-center",
-                        // for long (two-line) titles, nudge content slightly right
-                        long ? "gap-1 sm:gap-2 sm:translate-x-12" : "gap-2 sm:gap-3",
+                        long ? "gap-1 sm:gap-2" : "gap-2 sm:gap-3",
                       ].join(" ")}
                     >
                       {/* Logo */}
@@ -189,18 +188,16 @@ export default function ProjectsSection({ initialPage = "1" }) {
                         />
                       </div>
 
-                      {/* Title (wrapped in fixed-height container) */}
-                      <div className="min-h-[3.5rem] flex items-center">
-                        <span
-                          className="text-white/95 font-semibold tracking-wide leading-tight
-                                     break-words hyphens-auto [text-wrap:balance]
-                                     [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical] overflow-hidden
-                                     [font-size:clamp(1rem,2.2vw,1.5rem)]
-                                     max-w-[18ch] sm:max-w-[20ch]"
-                        >
-                          {withSoftBreaks(p.name)}
-                        </span>
-                      </div>
+                      {/* Title */}
+                      <span
+                        className="text-white/95 font-semibold tracking-wide leading-tight
+                                   break-words hyphens-auto [text-wrap:balance]
+                                   [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical] overflow-hidden
+                                   [font-size:clamp(1rem,2.2vw,1.5rem)]
+                                   max-w-[18ch] sm:max-w-[20ch]"
+                      >
+                        {withSoftBreaks(p.name)}
+                      </span>
                     </div>
                   </div>
                 </div>
