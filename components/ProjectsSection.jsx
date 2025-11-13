@@ -25,6 +25,7 @@ const LOGOS = {
   PackAttack: "/logos/PackAttack.png",
   SmokingCat: "/logos/SmokingCat.png",
   Ewards: "/logos/Ewards.png",
+  Unipro:"/logos/unipro.png",
 };
 
 const PROJECTS = [
@@ -43,6 +44,7 @@ const PROJECTS = [
   { id: "pack-attack", name: "PackAttack", live: "#", gradientFrom: "#6366f1", gradientTo: "#ec4899" },
   { id: "smoking-cat", name: "SmokingCat", live: "#", gradientFrom: "#1e40af", gradientTo: "#2563eb" },
   { id: "ewards", name: "Ewards", live: "/Home", gradientFrom: "#ef4444", gradientTo: "#f59e0b" },
+  { id: "unipro", name: "Unipro", live: "/Home", gradientFrom: "#44ef5bff", gradientTo: "#0babf5ff" },
 ];
 
 /* ---------- one-line status text for each card ---------- */
@@ -62,6 +64,7 @@ const STATUSES = {
   "pack-attack": "Shopify Store Managment",
   "smoking-cat": "Intelligent Odoo-Shopify Synchronization",
   ewards: "Comprehensive Loyalty Solution for Shopify",
+  unipro: "Order Managment System for School Uniform",
 };
 
 /* ---------- helpers ---------- */
